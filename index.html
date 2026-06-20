@@ -18,13 +18,14 @@
       overflow-x: hidden;
     }
 
+    /* 🌌 ستاره‌ها */
     .stars {
       position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: -3;
       overflow: hidden;
     }
 
@@ -43,6 +44,44 @@
       50% { opacity: 1; transform: scale(1.6); }
     }
 
+    /* 🌫 مه */
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 40%),
+                  radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04), transparent 45%);
+      animation: fogMove 20s infinite linear;
+      z-index: -2;
+    }
+
+    @keyframes fogMove {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(-5%, -5%); }
+      100% { transform: translate(0,0); }
+    }
+
+    /* ✨ بارش نور */
+    .light {
+      position: fixed;
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(147,197,253,0.6), transparent);
+      top: -100px;
+      animation: fall linear infinite;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(120vh); opacity: 0; }
+    }
+
+    /* 🧾 محتوا */
     .container {
       max-width: 900px;
       margin: auto;
@@ -104,8 +143,9 @@
 
 <body>
 
-<!-- ستاره‌ها -->
+<!-- افکت‌ها -->
 <div class="stars"></div>
+<div class="fog"></div>
 
 <div class="container">
 
@@ -117,13 +157,12 @@
   <div class="card">
     <div class="title">درباره من</div>
     <div class="poem">
-من مرتضی جهانی هستم، متولد سال ۱۳۷۷ در همدان.
+من مرتضی جهانی هستم، متولد ۱۳۷۷ در همدان.
 
 شاعر و علاقه‌مند به رسانه و بیان هنری.
-نوشتن برای من فقط کلمه نیست، نوعی نگاه به جهان است؛
-تلاشی برای تبدیل احساس به زبان.
+نوشتن برای من فقط کلمه نیست؛ نوعی زیستن است.
 
-این سایت خانه‌ی شعرها و نوشته‌های من است؛ ساده، آرام و بی‌ادعا.
+این صفحه خانه‌ی شعرها و افکار من است؛ ساده، آرام و بی‌ادعا.
     </div>
   </div>
 
@@ -139,23 +178,11 @@
 از سینه این برکه گذشتی نماندست
 تصویری از اندیشه خورشیدی و ماهی
 
-رسوایی من با همه ی شهر چنان کرد
-کز ترس تو بر سر نگذارند کلاهی
-
 برخورد شبی کهنه سواری به سپاهی
 چون چشم سفیدی که به گیسوی سیاهی
 
 از پیچش تصویر تو ای وحدت معنا
 افتاده ز هر موی تو کارم به الهی
-
-از قهر تو هر چند هم آغوش گریزیم
-جز دامن لطف تو نداریم پناهی
-
-دل خسته ی ناماندنت ای رود چو کوهیم
-در دست رسن بازی ات افتاده چو کاهی
-
-جز دار که بیداری بخت است نخواهید
-بر ما که به جز از عشق نداریم گناهی
 
 جز آه نداریم از عقل امیدی
 از عقل نداریم امیدی به جز آهی
@@ -168,20 +195,27 @@
 
 </div>
 
-<!-- اسکریپت ستاره‌ها -->
 <script>
+  // ستاره‌ها
   const starsContainer = document.querySelector('.stars');
-
   for (let i = 0; i < 90; i++) {
     const star = document.createElement('div');
     star.className = 'star';
-
     star.style.top = Math.random() * 100 + '%';
     star.style.left = Math.random() * 100 + '%';
     star.style.animationDuration = (Math.random() * 3 + 2) + 's';
     star.style.opacity = Math.random();
-
     starsContainer.appendChild(star);
+  }
+
+  // بارش نور
+  for (let i = 0; i < 25; i++) {
+    const light = document.createElement('div');
+    light.className = 'light';
+    light.style.left = Math.random() * 100 + '%';
+    light.style.animationDuration = (Math.random() * 5 + 3) + 's';
+    light.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(light);
   }
 </script>
 
