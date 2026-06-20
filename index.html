@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وبسایت شخصی</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Vazirmatn',sans-serif;
+background:#fff;
+overflow-x:hidden;
+}
+
+.hero{
+height:250vh;
+position:relative;
+}
+
+.sticky{
+position:sticky;
+top:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.lines{
+position:absolute;
+inset:0;
+z-index:1;
+opacity:.25;
+}
+
+.lines svg{
+width:3000px;
+height:100%;
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+}
+
+.center-image{
+position:relative;
+z-index:10;
+transition:all .15s linear;
+}
+
+.center-image img{
+width:420px;
+max-width:80vw;
+}
+
+.icon{
+position:absolute;
+font-size:45px;
+opacity:.8;
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.poem{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:50px;
+}
+
+.poem-box{
+max-width:900px;
+text-align:center;
+opacity:0;
+transform:translateY(100px);
+transition:1s;
+}
+
+.poem-box.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.poem h2{
+font-size:50px;
+margin-bottom:50px;
+}
+
+.poem p{
+font-size:32px;
+line-height:2.5;
+}
+
+.content{
+padding:120px 30px;
+max-width:1200px;
+margin:auto;
+}
+
+.content h2{
+font-size:40px;
+margin-bottom:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+padding:30px;
+border:1px solid #ddd;
+border-radius:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="sticky">
+
+<div class="lines">
+
+<svg viewBox="0 0 3000 1000">
+
+<path d="
+M0 500
+C250 350 450 650 700 500
+S1200 350 1500 500
+S2200 650 2500 450
+S2800 450 3000 500"
+fill="none"
+stroke="black"
+stroke-width="2"/>
+
+</svg>
+
+</div>
+
+<div class="icon" style="top:15%;left:10%">📚</div>
+<div class="icon" style="top:25%;left:20%">✒️</div>
+<div class="icon" style="top:60%;left:12%">📰</div>
+<div class="icon" style="top:70%;left:25%">🎙️</div>
+
+<div class="icon" style="top:20%;right:15%">🎥</div>
+<div class="icon" style="top:35%;right:8%">📖</div>
+<div class="icon" style="top:65%;right:15%">📝</div>
+<div class="icon" style="top:75%;right:25%">📷</div>
+
+<div class="center-image" id="photo">
+<img src="me.png" alt="">
+</div>
+
+</div>
+
+</section>
+
+<section class="poem">
+
+<div class="poem-box" id="poem">
+
+<h2>شعر</h2>
+
+<p>
+به نام خداوند جان و خرد
+</p>
+
+<p>
+کزین برتر اندیشه برنگذرد
+</p>
+
+<p>
+چو ایران نباشد تن من مباد
+</p>
+
+<p>
+بدین بوم و بر زنده یک تن مباد
+</p>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<h2>نوشته‌ها</h2>
+
+<div class="cards">
+
+<div class="card">
+مقاله اول
+</div>
+
+<div class="card">
+مقاله دوم
+</div>
+
+<div class="card">
+مقاله سوم
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const photo = document.getElementById("photo");
+const poem = document.getElementById("poem");
+
+window.addEventListener("scroll",()=>{
+
+let y = window.scrollY;
+
+let scale = Math.max(0.55,1-(y/2500));
+
+photo.style.transform =
+`translateY(${-y*0.25}px) scale(${scale})`;
+
+if(y>700){
+poem.classList.add("show");
+}
+
+});
+
+</script>
+
+</body>
+</html>
