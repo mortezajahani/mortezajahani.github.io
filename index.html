@@ -1,247 +1,188 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>وبسایت شخصی</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مرتضی جهانی | شاعر</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- فونت فارسی -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", sans-serif;
+      background: radial-gradient(circle at top, #0b1020, #05070f);
+      color: #e5e7eb;
+      line-height: 2;
+      overflow-x: hidden;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
 
-body{
-font-family:'Vazirmatn',sans-serif;
-background:#fff;
-overflow-x:hidden;
-}
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: twinkle 3s infinite ease-in-out;
+    }
 
-.hero{
-height:250vh;
-position:relative;
-}
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.6); }
+    }
 
-.sticky{
-position:sticky;
-top:0;
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px 20px;
+    }
 
-.lines{
-position:absolute;
-inset:0;
-z-index:1;
-opacity:.25;
-}
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-.lines svg{
-width:3000px;
-height:100%;
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-}
+    h1 {
+      font-size: 46px;
+      margin: 0;
+      color: #ffffff;
+    }
 
-.center-image{
-position:relative;
-z-index:10;
-transition:all .15s linear;
-}
+    .tagline {
+      margin-top: 10px;
+      color: #93c5fd;
+      font-size: 18px;
+    }
 
-.center-image img{
-width:420px;
-max-width:80vw;
-}
+    .card {
+      background: rgba(17, 24, 39, 0.75);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
 
-.icon{
-position:absolute;
-font-size:45px;
-opacity:.8;
-animation:float 6s ease-in-out infinite;
-}
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(147, 197, 253, 0.3);
+    }
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
+    .title {
+      font-size: 20px;
+      color: #60a5fa;
+      margin-bottom: 12px;
+    }
 
-.poem{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:50px;
-}
+    .poem {
+      white-space: pre-line;
+      color: #e5e7eb;
+      font-size: 16px;
+    }
 
-.poem-box{
-max-width:900px;
-text-align:center;
-opacity:0;
-transform:translateY(100px);
-transition:1s;
-}
-
-.poem-box.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.poem h2{
-font-size:50px;
-margin-bottom:50px;
-}
-
-.poem p{
-font-size:32px;
-line-height:2.5;
-}
-
-.content{
-padding:120px 30px;
-max-width:1200px;
-margin:auto;
-}
-
-.content h2{
-font-size:40px;
-margin-bottom:30px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-padding:30px;
-border:1px solid #ddd;
-border-radius:20px;
-}
-
-</style>
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
+<!-- ستاره‌ها -->
+<div class="stars"></div>
 
-<div class="sticky">
+<div class="container">
 
-<div class="lines">
+  <header>
+    <h1>مرتضی جهانی</h1>
+    <div class="tagline">توحید بر ما عرضه کن تا بشکنیم اصنام را</div>
+  </header>
 
-<svg viewBox="0 0 3000 1000">
+  <div class="card">
+    <div class="title">درباره من</div>
+    <div class="poem">
+من مرتضی جهانی هستم، متولد سال ۱۳۷۷ در همدان.
 
-<path d="
-M0 500
-C250 350 450 650 700 500
-S1200 350 1500 500
-S2200 650 2500 450
-S2800 450 3000 500"
-fill="none"
-stroke="black"
-stroke-width="2"/>
+شاعر و علاقه‌مند به رسانه و بیان هنری.
+نوشتن برای من فقط کلمه نیست، نوعی نگاه به جهان است؛
+تلاشی برای تبدیل احساس به زبان.
 
-</svg>
+این سایت خانه‌ی شعرها و نوشته‌های من است؛ ساده، آرام و بی‌ادعا.
+    </div>
+  </div>
 
-</div>
+  <div class="card">
+    <div class="title">شعر منتخب</div>
+    <div class="poem">
+انداخته سنگی دل دیوانه به چاهی
+از عقل نداریم امیدی به جز آهی
 
-<div class="icon" style="top:15%;left:10%">📚</div>
-<div class="icon" style="top:25%;left:20%">✒️</div>
-<div class="icon" style="top:60%;left:12%">📰</div>
-<div class="icon" style="top:70%;left:25%">🎙️</div>
+آنکس که نکردند نگاهش همه ی عمر
+درباخت همه عمر خودش را به نگاهی
 
-<div class="icon" style="top:20%;right:15%">🎥</div>
-<div class="icon" style="top:35%;right:8%">📖</div>
-<div class="icon" style="top:65%;right:15%">📝</div>
-<div class="icon" style="top:75%;right:25%">📷</div>
+از سینه این برکه گذشتی نماندست
+تصویری از اندیشه خورشیدی و ماهی
 
-<div class="center-image" id="photo">
-<img src="me.png" alt="">
-</div>
+رسوایی من با همه ی شهر چنان کرد
+کز ترس تو بر سر نگذارند کلاهی
 
-</div>
+برخورد شبی کهنه سواری به سپاهی
+چون چشم سفیدی که به گیسوی سیاهی
 
-</section>
+از پیچش تصویر تو ای وحدت معنا
+افتاده ز هر موی تو کارم به الهی
 
-<section class="poem">
+از قهر تو هر چند هم آغوش گریزیم
+جز دامن لطف تو نداریم پناهی
 
-<div class="poem-box" id="poem">
+دل خسته ی ناماندنت ای رود چو کوهیم
+در دست رسن بازی ات افتاده چو کاهی
 
-<h2>شعر</h2>
+جز دار که بیداری بخت است نخواهید
+بر ما که به جز از عشق نداریم گناهی
 
-<p>
-به نام خداوند جان و خرد
-</p>
+جز آه نداریم از عقل امیدی
+از عقل نداریم امیدی به جز آهی
+    </div>
+  </div>
 
-<p>
-کزین برتر اندیشه برنگذرد
-</p>
-
-<p>
-چو ایران نباشد تن من مباد
-</p>
-
-<p>
-بدین بوم و بر زنده یک تن مباد
-</p>
-
-</div>
-
-</section>
-
-<section class="content">
-
-<h2>نوشته‌ها</h2>
-
-<div class="cards">
-
-<div class="card">
-مقاله اول
-</div>
-
-<div class="card">
-مقاله دوم
-</div>
-
-<div class="card">
-مقاله سوم
-</div>
+  <footer>
+    ساخته شده با GitHub Pages • جهان شاعرانه
+  </footer>
 
 </div>
 
-</section>
-
+<!-- اسکریپت ستاره‌ها -->
 <script>
+  const starsContainer = document.querySelector('.stars');
 
-const photo = document.getElementById("photo");
-const poem = document.getElementById("poem");
+  for (let i = 0; i < 90; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
 
-window.addEventListener("scroll",()=>{
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    star.style.opacity = Math.random();
 
-let y = window.scrollY;
-
-let scale = Math.max(0.55,1-(y/2500));
-
-photo.style.transform =
-`translateY(${-y*0.25}px) scale(${scale})`;
-
-if(y>700){
-poem.classList.add("show");
-}
-
-});
-
+    starsContainer.appendChild(star);
+  }
 </script>
 
 </body>
