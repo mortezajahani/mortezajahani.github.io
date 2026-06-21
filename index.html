@@ -3,520 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مرتضی جهانی مقدم — مجری، شاعر، رسانه</title>
-<meta name="description" content="وب‌سایت شخصی مرتضی جهانی مقدم؛ مجری، شاعر و فعال حوزه رسانه.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Estedad:wght@400;700&display=swap" rel="stylesheet">
+<title>مرتضی جهانی مقدم</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0e0e10;
-    --bg-soft:#15151a;
-    --ink:#f3efe6;
-    --ink-dim:#a8a29a;
-    --gold:#c9a96a;
-    --gold-soft:#e7d4a8;
-    --line:rgba(243,239,230,0.08);
-    --ease:cubic-bezier(.2,.7,.2,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Vazirmatn',sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    line-height:1.8;
-    font-weight:300;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{background:var(--gold);color:var(--bg)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Vazirmatn',sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.8;font-weight:300}
+::selection{background:#c9a96a;color:#0a0a0a}
 
-  /* --- Nav --- */
-  nav{
-    position:fixed;top:0;right:0;left:0;z-index:50;
-    padding:1.2rem 2.5rem;
-    display:flex;justify-content:space-between;align-items:center;
-    backdrop-filter:blur(14px);
-    background:rgba(14,14,16,0.55);
-    border-bottom:1px solid transparent;
-    transition:border-color .4s var(--ease), padding .4s var(--ease);
-  }
-  nav.scrolled{border-bottom-color:var(--line);padding:.8rem 2.5rem}
-  .logo{
-    font-family:'Estedad',serif;
-    font-weight:700;font-size:1.15rem;letter-spacing:.5px;
-    color:var(--ink);
-  }
-  .logo span{color:var(--gold)}
-  .nav-links{display:flex;gap:2.2rem;list-style:none}
-  .nav-links a{
-    color:var(--ink-dim);text-decoration:none;font-size:.92rem;
-    position:relative;transition:color .3s var(--ease);
-  }
-  .nav-links a::after{
-    content:'';position:absolute;bottom:-6px;right:0;
-    width:0;height:1px;background:var(--gold);
-    transition:width .4s var(--ease);
-  }
-  .nav-links a:hover{color:var(--ink)}
-  .nav-links a:hover::after{width:100%}
-  .menu-btn{display:none;background:none;border:none;color:var(--ink);cursor:pointer;font-size:1.4rem}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
 
-  /* --- Hero --- */
-  .hero{
-    min-height:100vh;
-    display:flex;flex-direction:column;justify-content:center;
-    padding:8rem 2.5rem 4rem;
-    position:relative;
-    max-width:1400px;margin:0 auto;
-  }
-  .hero-tag{
-    display:inline-flex;align-items:center;gap:.7rem;
-    color:var(--gold);font-size:.85rem;letter-spacing:3px;
-    margin-bottom:2rem;text-transform:uppercase;
-  }
-  .hero-tag::before{
-    content:'';width:40px;height:1px;background:var(--gold);
-  }
-  .hero h1{
-    font-family:'Estedad',serif;
-    font-size:clamp(2.8rem,7vw,6.5rem);
-    font-weight:700;line-height:1.1;
-    margin-bottom:1.8rem;
-    letter-spacing:-.5px;
-  }
-  .hero h1 .accent{color:var(--gold);font-style:italic;font-weight:400}
-  .hero-sub{
-    font-size:1.15rem;color:var(--ink-dim);
-    max-width:620px;margin-bottom:3rem;
-  }
-  .hero-verse{
-    font-family:'Estedad',serif;
-    font-size:1.3rem;color:var(--gold-soft);
-    border-right:2px solid var(--gold);
-    padding-right:1.5rem;
-    max-width:520px;font-style:italic;
-    margin-top:2rem;
-  }
-  .scroll-hint{
-    position:absolute;bottom:2.5rem;left:2.5rem;
-    display:flex;align-items:center;gap:.8rem;
-    color:var(--ink-dim);font-size:.8rem;letter-spacing:2px;
-  }
-  .scroll-hint::after{
-    content:'';width:1px;height:50px;background:var(--ink-dim);
-    animation:scrollLine 2.2s var(--ease) infinite;
-  }
-  @keyframes scrollLine{
-    0%{transform:scaleY(0);transform-origin:top}
-    50%{transform:scaleY(1);transform-origin:top}
-    51%{transform-origin:bottom}
-    100%{transform:scaleY(0);transform-origin:bottom}
-  }
+nav{position:fixed;top:0;right:0;left:0;z-index:100;padding:1.5rem 2rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.05)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.1rem;font-weight:500;letter-spacing:1px}
+.logo span{color:#c9a96a}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:#999;text-decoration:none;font-size:.9rem;transition:color .3s}
+.nav-links a:hover{color:#e8e8e8}
 
-  /* --- Sections --- */
-  section{padding:7rem 2.5rem;max-width:1400px;margin:0 auto}
-  .section-head{
-    display:flex;align-items:baseline;gap:1.5rem;
-    margin-bottom:4rem;
-  }
-  .section-num{
-    color:var(--gold);font-size:.9rem;letter-spacing:3px;
-    font-family:'Estedad',serif;
-  }
-  .section-title{
-    font-family:'Estedad',serif;
-    font-size:clamp(2rem,4vw,3rem);
-    font-weight:700;
-  }
-  .section-line{
-    flex:1;height:1px;background:var(--line);
-  }
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 0 4rem}
+.hero-tag{color:#c9a96a;font-size:.8rem;letter-spacing:3px;margin-bottom:2rem}
+.hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1.2;margin-bottom:2rem}
+.hero h1 em{color:#c9a96a;font-style:normal}
+.hero-text{font-size:1.1rem;color:#999;max-width:600px;margin-bottom:3rem}
+.hero-verse{font-size:1.2rem;color:#c9a96a;border-right:2px solid #c9a96a;padding-right:1.5rem;max-width:500px}
 
-  /* --- About --- */
-  .about-grid{
-    display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;
-    align-items:start;
-  }
-  .about-text p{
-    color:var(--ink-dim);font-size:1.05rem;margin-bottom:1.4rem;
-  }
-  .about-text p strong{color:var(--ink);font-weight:500}
-  .stats{
-    display:grid;grid-template-columns:repeat(2,1fr);
-    gap:2rem;margin-top:3rem;
-    padding-top:3rem;border-top:1px solid var(--line);
-  }
-  .stat-num{
-    font-family:'Estedad',serif;
-    font-size:2.8rem;color:var(--gold);font-weight:700;
-    line-height:1;
-  }
-  .stat-label{color:var(--ink-dim);font-size:.9rem;margin-top:.5rem}
+section{padding:6rem 0}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:3rem;color:#c9a96a}
 
-  /* --- Works (Poems) --- */
-  .poems{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:1.5rem;
-  }
-  .poem-card{
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    padding:2.5rem 2rem;
-    transition:all .5s var(--ease);
-    position:relative;overflow:hidden;
-  }
-  .poem-card::before{
-    content:'';position:absolute;top:0;right:0;
-    width:0;height:2px;background:var(--gold);
-    transition:width .6s var(--ease);
-  }
-  .poem-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(201,169,106,0.3);
-  }
-  .poem-card:hover::before{width:100%}
-  .poem-title{
-    font-family:'Estedad',serif;
-    color:var(--gold);font-size:1.1rem;
-    margin-bottom:1.5rem;letter-spacing:1px;
-  }
-  .poem-body{
-    font-family:'Estedad',serif;
-    color:var(--ink);font-size:1.05rem;
-    line-height:2.4;white-space:pre-line;
-  }
-  .poem-body .beyt{
-    display:block;
-    margin-bottom:.8rem;
-  }
+.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.about-text p{color:#999;margin-bottom:1.2rem;font-size:1rem}
+.about-text strong{color:#e8e8e8;font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.05)}
+.stat-num{font-size:2.5rem;color:#c9a96a;font-weight:700;line-height:1}
+.stat-label{color:#999;font-size:.85rem;margin-top:.5rem}
 
-  /* --- Media --- */
-  .media-list{display:flex;flex-direction:column;gap:0}
-  .media-item{
-    display:grid;grid-template-columns:80px 1fr auto;
-    gap:2rem;align-items:center;
-    padding:2rem 0;
-    border-top:1px solid var(--line);
-    cursor:pointer;
-    transition:padding .4s var(--ease);
-  }
-  .media-item:last-child{border-bottom:1px solid var(--line)}
-  .media-item:hover{padding-right:1.5rem}
-  .media-num{
-    font-family:'Estedad',serif;
-    color:var(--gold);font-size:1.1rem;
-  }
-  .media-info h3{
-    font-family:'Estedad',serif;
-    font-size:1.4rem;font-weight:500;margin-bottom:.3rem;
-  }
-  .media-info p{color:var(--ink-dim);font-size:.9rem}
-  .media-arrow{
-    color:var(--ink-dim);font-size:1.5rem;
-    transition:transform .4s var(--ease),color .4s var(--ease);
-  }
-  .media-item:hover .media-arrow{
-    transform:translateX(-8px);color:var(--gold);
-  }
+.poems{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.poem-card{background:#111;border:1px solid rgba(255,255,255,0.05);padding:2rem;transition:border-color .3s}
+.poem-card:hover{border-color:rgba(201,169,106,0.3)}
+.poem-title{color:#c9a96a;font-size:1rem;margin-bottom:1.5rem}
+.poem-body{font-size:1rem;line-height:2.4;white-space:pre-line}
 
-  /* --- Contact --- */
-  .contact-wrap{
-    text-align:center;padding:4rem 0;
-  }
-  .contact-wrap p{
-    color:var(--ink-dim);font-size:1.1rem;
-    max-width:520px;margin:0 auto 3rem;
-  }
-  .contact-email{
-    font-family:'Estedad',serif;
-    font-size:clamp(1.8rem,4vw,3rem);
-    color:var(--ink);text-decoration:none;
-    position:relative;display:inline-block;
-    transition:color .4s var(--ease);
-  }
-  .contact-email:hover{color:var(--gold)}
-  .contact-email::after{
-    content:'';position:absolute;bottom:-8px;right:0;left:0;
-    height:1px;background:var(--gold);
-    transform:scaleX(0);transform-origin:right;
-    transition:transform .5s var(--ease);
-  }
-  .contact-email:hover::after{transform:scaleX(1);transform-origin:left}
-  .socials{
-    display:flex;justify-content:center;gap:2rem;
-    margin-top:4rem;flex-wrap:wrap;
-  }
-  .socials a{
-    color:var(--ink-dim);text-decoration:none;
-    font-size:.9rem;letter-spacing:2px;
-    transition:color .3s var(--ease);
-  }
-  .socials a:hover{color:var(--gold)}
+.media-list{display:flex;flex-direction:column}
+.media-item{display:grid;grid-template-columns:60px 1fr auto;gap:2rem;align-items:center;padding:1.8rem 0;border-top:1px solid rgba(255,255,255,0.05);transition:padding .3s}
+.media-item:last-child{border-bottom:1px solid rgba(255,255,255,0.05)}
+.media-item:hover{padding-right:1rem}
+.media-num{color:#c9a96a;font-size:1rem}
+.media-info h3{font-size:1.2rem;font-weight:500;margin-bottom:.3rem}
+.media-info p{color:#999;font-size:.85rem}
+.media-arrow{color:#999;font-size:1.3rem;transition:transform .3s,color .3s}
+.media-item:hover .media-arrow{transform:translateX(-6px);color:#c9a96a}
 
-  /* --- Footer --- */
-  footer{
-    padding:2.5rem;
-    border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:center;
-    color:var(--ink-dim);font-size:.85rem;
-    max-width:1400px;margin:0 auto;
-  }
+.contact{text-align:center;padding:4rem 0}
+.contact p{color:#999;font-size:1rem;max-width:500px;margin:0 auto 2.5rem}
+.contact-email{font-size:clamp(1.5rem,3vw,2.2rem);color:#e8e8e8;text-decoration:none;display:inline-block;transition:color .3s}
+.contact-email:hover{color:#c9a96a}
+.socials{display:flex;justify-content:center;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.socials a{color:#999;text-decoration:none;font-size:.9rem;transition:color .3s}
+.socials a:hover{color:#c9a96a}
 
-  /* --- Reveal animation --- */
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
+footer{padding:2rem 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;color:#666;font-size:.8rem}
 
-  /* --- Responsive --- */
-  @media(max-width:860px){
-    nav{padding:1rem 1.5rem}
-    .nav-links{
-      position:fixed;top:0;right:-100%;
-      width:75%;height:100vh;
-      background:var(--bg-soft);
-      flex-direction:column;justify-content:center;align-items:center;
-      gap:2.5rem;transition:right .5s var(--ease);
-      border-left:1px solid var(--line);
-    }
-    .nav-links.open{right:0}
-    .menu-btn{display:block;z-index:60}
-    .hero{padding:7rem 1.5rem 4rem}
-    section{padding:5rem 1.5rem}
-    .about-grid{grid-template-columns:1fr;gap:3rem}
-    .media-item{grid-template-columns:50px 1fr auto;gap:1rem}
-    .media-info h3{font-size:1.15rem}
-    footer{flex-direction:column;gap:1rem;text-align:center}
-    .scroll-hint{display:none}
-  }
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero{padding:7rem 0 3rem}
+  section{padding:4rem 0}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .media-item{grid-template-columns:40px 1fr auto;gap:1rem}
+  .media-info h3{font-size:1rem}
+  footer{flex-direction:column;gap:.8rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="logo">مرتضی <span>جهانی مقدم</span></div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">خانه</a></li>
-    <li><a href="#about">درباره</a></li>
-    <li><a href="#works">شعرها</a></li>
-    <li><a href="#media">اجراها</a></li>
-    <li><a href="#contact">تماس</a></li>
-  </ul>
-  <button class="menu-btn" id="menuBtn" aria-label="منو">☰</button>
+<nav>
+  <div class="container">
+    <div class="logo">مرتضی <span>جهانی مقدم</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">خانه</a></li>
+      <li><a href="#about">درباره</a></li>
+      <li><a href="#works">شعرها</a></li>
+      <li><a href="#media">اجراها</a></li>
+      <li><a href="#contact">تماس</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-tag reveal">مجری · شاعر · رسانه</div>
-  <h1 class="reveal">
-    کلام،<br>
-    <span class="accent">هنرِ شنیده شدن</span> است.
-  </h1>
-  <p class="hero-sub reveal">
-    مرتضی جهانی مقدم؛ راوی قصه‌هایی که در مرز میان کلمه و صدا شکل می‌گیرند. از صحنه‌ی اجرا تا سپیدیِ کاغذ، همه‌چیز برای آن است که حرفی درست به گوشِ درست برسد.
-  </p>
-  <div class="hero-verse reveal">
-    «انداخته سنگی دل دیوانه به چاهی / از عقل نداریم امیدی به جز آهی»
+  <div class="container">
+    <div class="hero-tag">مجری · شاعر · رسانه</div>
+    <h1>کلام،<br><em>هنرِ شنیده شدن</em> است.</h1>
+    <p class="hero-text">مرتضی جهانی مقدم؛ راوی قصه‌هایی که در مرز میان کلمه و صدا شکل می‌گیرند.</p>
+    <div class="hero-verse">«انداخته سنگی دل دیوانه به چاهی / از عقل نداریم امیدی به جز آهی»</div>
   </div>
-  <div class="scroll-hint">SCROLL</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="section-head reveal">
-    <span class="section-num">01 —</span>
+  <div class="container">
     <h2 class="section-title">درباره</h2>
-    <span class="section-line"></span>
-  </div>
-  <div class="about-grid">
-    <div class="reveal">
-      <p style="color:var(--gold);font-family:'Estedad',serif;font-size:1.3rem;line-height:1.7">
-        صدایی که از دل برآید، لاجرم بر دل نشیند.
-      </p>
-    </div>
-    <div class="about-text reveal">
-      <p>
-        <strong>مرتضی جهانی مقدم</strong>، مجری و فعال حوزه‌ی رسانه با سال‌ها تجربه در اجرای برنامه‌های زنده، رویدادهای فرهنگی و تولید محتوای شنیداری.
-      </p>
-      <p>
-        در کنار اجرا، سرودن شعر برای او نه یک حرفه، که روشی است برای نگاه کردن به جهان؛ نگاهی که در هر مصرع، تازه می‌شود.
-      </p>
-      <p>
-        باور دارم رسانه، آینه‌ی صداقت است — و صداقت، تنها سرمایه‌ای است که در برابر زمان دوام می‌آورد.
-      </p>
-      <div class="stats">
-        <div>
-          <div class="stat-num">+۱۰</div>
-          <div class="stat-label">سال تجربه‌ی اجرا</div>
-        </div>
-        <div>
-          <div class="stat-num">+۵۰</div>
-          <div class="stat-label">برنامه‌ی زنده</div>
-        </div>
-        <div>
-          <div class="stat-num">+۱۰۰</div>
-          <div class="stat-label">قطعه‌ی سروده</div>
-        </div>
-        <div>
-          <div class="stat-num">∞</div>
-          <div class="stat-label">عشق به کلمه</div>
+    <div class="about-grid">
+      <div>
+        <p style="color:#c9a96a;font-size:1.2rem;line-height:1.7">صدایی که از دل برآید، لاجرم بر دل نشیند.</p>
+      </div>
+      <div class="about-text">
+        <p><strong>مرتضی جهانی مقدم</strong>، مجری و فعال حوزه‌ی رسانه با سال‌ها تجربه در اجرای برنامه‌های زنده، رویدادهای فرهنگی و تولید محتوای شنیداری.</p>
+        <p>در کنار اجرا، سرودن شعر برای او نه یک حرفه، که روشی است برای نگاه کردن به جهان.</p>
+        <p>باور دارم رسانه، آینه‌ی صداقت است — و صداقت، تنها سرمایه‌ای است که در برابر زمان دوام می‌آورد.</p>
+        <div class="stats">
+          <div>
+            <div class="stat-num">+۱۰</div>
+            <div class="stat-label">سال تجربه‌ی اجرا</div>
+          </div>
+          <div>
+            <div class="stat-num">+۵۰</div>
+            <div class="stat-label">برنامه‌ی زنده</div>
+          </div>
+          <div>
+            <div class="stat-num">+۱۰۰</div>
+            <div class="stat-label">قطعه‌ی سروده</div>
+          </div>
+          <div>
+            <div class="stat-num">∞</div>
+            <div class="stat-label">عشق به کلمه</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORKS -->
 <section id="works">
-  <div class="section-head reveal">
-    <span class="section-num">02 —</span>
+  <div class="container">
     <h2 class="section-title">گزیده‌ی شعرها</h2>
-    <span class="section-line"></span>
-  </div>
-  <div class="poems">
-    <div class="poem-card reveal">
-      <div class="poem-title">— غزل (از عقل نداریم امیدی به جز آهی)</div>
-      <div class="poem-body">
-<span class="beyt">انداخته سنگی دل دیوانه به چاهی</span>
-<span class="beyt">از عقل نداریم امیدی به جز آهی</span>
+    <div class="poems">
+      <div class="poem-card">
+        <div class="poem-title">— غزل</div>
+        <div class="poem-body">انداخته سنگی دل دیوانه به چاهی
+از عقل نداریم امیدی به جز آهی
 
-<span class="beyt">آنکس که نکردند نگاهش همه ی عمر</span>
-<span class="beyt">درباخت همه عمر خودش را به نگاهی</span>
+آنکس که نکردند نگاهش همه ی عمر
+درباخت همه عمر خودش را به نگاهی
 
-<span class="beyt">از سینه این برکه گذشتی نماندست</span>
-<span class="beyt">تصویری از اندیشه خورشیدی و ماهی</span>
+از سینه این برکه گذشتی نماندست
+تصویری از اندیشه خورشیدی و ماهی
 
-<span class="beyt">برخورد شبی کهنه سواری به سپاهی</span>
-<span class="beyt">چون چشم سفیدی که به گیسوی سیاهی</span>
+برخورد شبی کهنه سواری به سپاهی
+چون چشم سفیدی که به گیسوی سیاهی
 
-<span class="beyt">از پیچش تصویر تو ای وحدت معنا</span>
-<span class="beyt">افتاده ز هر موی تو کارم به الهی</span>
+از پیچش تصویر تو ای وحدت معنا
+افتاده ز هر موی تو کارم به الهی
 
-<span class="beyt">جز آه نداریم از عقل امیدی</span>
-<span class="beyt">از عقل نداریم امیدی به جز آهی</span>
-      </div>
-    </div>
-    <div class="poem-card reveal">
-      <div class="poem-title">— صدای من</div>
-      <div class="poem-body">
-صدایم را به میکروفون سپرده‌ام
-تا برسد به گوشِ کسی
-که سال‌هاست منتظرِ
-یک حرفِ راست است.
-
-مجری‌ام؛
-اما نه برای جمعیت —
-برای همان یک نفر.
-      </div>
-    </div>
-    <div class="poem-card reveal">
-      <div class="poem-title">— رسانه</div>
-      <div class="poem-body">
-رسانه آینه نیست
-پنجره‌ای است رو به فردا؛
-
-اگر درست بایستی
-تمامِ شهر را
-در یک قاب می‌بینی.
+جز آه نداریم از عقل امیدی
+از عقل نداریم امیدی به جز آهی</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MEDIA -->
 <section id="media">
-  <div class="section-head reveal">
-    <span class="section-num">03 —</span>
+  <div class="container">
     <h2 class="section-title">اجراها و رسانه</h2>
-    <span class="section-line"></span>
-  </div>
-  <div class="media-list">
-    <div class="media-item reveal">
-      <span class="media-num">/ 01</span>
-      <div class="media-info">
-        <h3>اجرای مراسم افتتاحیه‌ی جشنواره‌ی فرهنگی</h3>
-        <p>اجرای زنده‌ی صحنه — ۱۴۰۴</p>
+    <div class="media-list">
+      <div class="media-item">
+        <span class="media-num">01</span>
+        <div class="media-info">
+          <h3>اجرای مراسم افتتاحیه‌ی جشنواره‌ی فرهنگی</h3>
+          <p>اجرای زنده‌ی صحنه — ۱۴۰۴</p>
+        </div>
+        <span class="media-arrow">←</span>
       </div>
-      <span class="media-arrow">←</span>
-    </div>
-    <div class="media-item reveal">
-      <span class="media-num">/ 02</span>
-      <div class="media-info">
-        <h3>سری برنامه‌ی رادیویی «واژه‌های زنده»</h3>
-        <p>تهیه‌کننده و مجری — ۱۴۰۳</p>
+      <div class="media-item">
+        <span class="media-num">02</span>
+        <div class="media-info">
+          <h3>سری برنامه‌ی رادیویی «واژه‌های زنده»</h3>
+          <p>تهیه‌کننده و مجری — ۱۴۰۳</p>
+        </div>
+        <span class="media-arrow">←</span>
       </div>
-      <span class="media-arrow">←</span>
-    </div>
-    <div class="media-item reveal">
-      <span class="media-num">/ 03</span>
-      <div class="media-info">
-        <h3>شب شعر «از جنس کلام»</h3>
-        <p>شاعر و خوانشگر — ۱۴۰۳</p>
+      <div class="media-item">
+        <span class="media-num">03</span>
+        <div class="media-info">
+          <h3>شب شعر «از جنس کلام»</h3>
+          <p>شاعر و خوانشگر — ۱۴۰۳</p>
+        </div>
+        <span class="media-arrow">←</span>
       </div>
-      <span class="media-arrow">←</span>
-    </div>
-    <div class="media-item reveal">
-      <span class="media-num">/ 04</span>
-      <div class="media-info">
-        <h3>مستند صوتی «صدای شهر»</h3>
-        <p>راوی و گوینده — ۱۴۰۲</p>
+      <div class="media-item">
+        <span class="media-num">04</span>
+        <div class="media-info">
+          <h3>مستند صوتی «صدای شهر»</h3>
+          <p>راوی و گوینده — ۱۴۰۲</p>
+        </div>
+        <span class="media-arrow">←</span>
       </div>
-      <span class="media-arrow">←</span>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="section-head reveal">
-    <span class="section-num">04 —</span>
+  <div class="container">
     <h2 class="section-title">گفت‌وگو</h2>
-    <span class="section-line"></span>
-  </div>
-  <div class="contact-wrap reveal">
-    <p>برای همکاری، دعوت به اجرا، یا صرفاً یک گفت‌وگوی شاعرانه — در دسترسم.</p>
-    <a href="mailto:hello@jahanimoghaddam.ir" class="contact-email">hello@jahanimoghaddam.ir</a>
-    <div class="socials">
-      <a href="https://instagram.com/mortezajahani_ir" target="_blank">اینستاگرام</a>
-      <a href="https://www.aparat.com/m_jm" target="_blank">آپارات</a>
+    <div class="contact">
+      <p>برای همکاری، دعوت به اجرا، یا صرفاً یک گفت‌وگوی شاعرانه — در دسترسم.</p>
+      <a href="mailto:hello@jahanimoghaddam.ir" class="contact-email">hello@jahanimoghaddam.ir</a>
+      <div class="socials">
+        <a href="https://instagram.com/mortezajahani_ir" target="_blank">اینستاگرام</a>
+        <a href="https://www.aparat.com/m_jm" target="_blank">آپارات</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div>© ۱۴۰۵ — مرتضی جهانی مقدم. تمامی حقوق محفوظ است.</div>
-  <div style="color:var(--gold)">طراحی‌شده با کلمه و سکوت.</div>
+  <div class="container">
+    <div>© ۱۴۰۵ — مرتضی جهانی مقدم</div>
+    <div style="color:#c9a96a">طراحی‌شده با کلمه و سکوت.</div>
+  </div>
 </footer>
 
 <script>
-  // Nav scroll state
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 30);
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener('click',function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
   });
-
-  // Mobile menu
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuBtn.textContent = '☰';
-  }));
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+});
 </script>
+
 </body>
 </html>
