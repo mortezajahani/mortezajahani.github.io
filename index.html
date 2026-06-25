@@ -67,15 +67,7 @@
   .desk-item h3{font-family:'Aref Ruqaa', serif;font-size:1.2rem;margin-bottom:.5rem}
   .desk-item p{font-size:.85rem;color:var(--ink-muted);line-height:1.6}
 
-  /* PANORAMA - با placeholder */
-  .panorama{
-    position:relative;
-    height:70vh;
-    min-height:400px;
-    overflow:hidden;
-    background:var(--ink);
-    margin:0;
-  }
+  .panorama{position:relative;height:70vh;min-height:400px;overflow:hidden;background:var(--ink);margin:0}
   .panorama::before,
   .panorama::after{
     content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none;
@@ -83,7 +75,6 @@
   .panorama::before{right:0;background:linear-gradient(to left, var(--ink) 0%, transparent 100%)}
   .panorama::after{left:0;background:linear-gradient(to right, var(--ink) 0%, transparent 100%)}
   
-  /* Placeholder وقتی عکس لود نمی‌شود */
   .pan-placeholder{
     position:absolute;
     top:0;right:0;
@@ -351,7 +342,6 @@
 </section>
 
 <section class="panorama" id="panorama">
-  <!-- Placeholder وقتی عکس لود نمی‌شود -->
   <div class="pan-placeholder" id="panPlaceholder">
     <div class="pan-placeholder-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -361,8 +351,14 @@
       </svg>
     </div>
   </div>
-  <!-- عکس واقعی -->
-  <img src="31.png" alt="مرتضی جهانی مقدم" class="pan-image hidden" id="panImage" onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';">
+  <img 
+    src="http://mortezajahani.ir/31.png" 
+    alt="مرتضی جهانی مقدم" 
+    class="pan-image hidden" 
+    id="panImage" 
+    onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';"
+    onerror="console.log('Error loading image from mortezajahani.ir')"
+  >
   <div class="pan-overlay">
     <div class="pan-caption">
       جهانی مقدم
@@ -502,7 +498,7 @@
           <p class="project-desc">مجموعه‌ای گفتگو محور پیرامون شبهات دینی؛ بررسی پرسش‌ها و چالش‌های اعتقادی با رویکردی تحلیلی و پاسخ‌گو.</p>
           <div class="project-meta">
             <span>🎙 گفتگو محور</span>
-            <span> به رنگ آب</span>
+            <span>💧 به رنگ آب</span>
             <span>📖 شبهات دینی</span>
           </div>
         </div>
@@ -609,7 +605,7 @@
 
   function handleSubmit(e){
     e.preventDefault();
-    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. ');
+    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. 🌹');
     e.target.reset();
   }
 
