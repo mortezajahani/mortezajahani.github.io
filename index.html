@@ -35,24 +35,14 @@
     line-height:1.9;
     font-weight:400;
     overflow-x:hidden;
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(184,134,11,.04) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(139,38,53,.04) 0%, transparent 40%);
-  }
-
-  body::before{
-    content:'';
-    position:fixed;inset:0;pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.18 0 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    opacity:.6;z-index:0;
   }
 
   .container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
 
-  nav{position:fixed;top:0;right:0;left:0;background:rgba(244,237,224,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;transition:all .3s}
+  nav{position:fixed;top:0;right:0;left:0;background:rgba(244,237,224,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;transition:all .3s}
   .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
-  .logo{font-family:'Aref Ruqaa', serif;font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:.5px}
-  .logo span{color:var(--accent)}
+  .logo{font-family:'Aref Ruqaa', serif;font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:3px;white-space:nowrap}
+  .logo span{color:var(--accent);margin:0 2px}
   .nav-links{display:flex;gap:2rem;list-style:none}
   .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.95rem;font-weight:500;position:relative;transition:color .3s}
   .nav-links a::after{content:'';position:absolute;bottom:-6px;right:0;width:0;height:1px;background:var(--accent);transition:width .3s}
@@ -60,48 +50,13 @@
   .nav-links a:hover::after{width:100%}
   .menu-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
 
-  .hero{
-    min-height:100vh;
-    display:flex;align-items:center;justify-content:center;
-    padding:8rem 2rem 4rem;
-    position:relative;
-    text-align:center;
-  }
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:8rem 2rem 4rem;position:relative;text-align:center}
   .hero-content{max-width:100%}
-  .hero-greeting{
-    font-family:'Vazirmatn', sans-serif;
-    font-size:1.1rem;
-    color:var(--accent);
-    margin-bottom:2rem;
-    opacity:0;animation:fadeUp .8s .2s forwards;
-    letter-spacing:2px;
-    font-weight:500;
-  }
-  .hero h1{
-    font-family:'Aref Ruqaa', serif;
-    font-size:clamp(5rem, 15vw, 14rem);
-    font-weight:700;
-    line-height:1.1;
-    color:var(--ink);
-    margin-bottom:2rem;
-    opacity:0;animation:fadeUp .8s .4s forwards;
-    letter-spacing:-2px;
-  }
-  .hero h1 .highlight{
-    color:var(--accent);
-    position:relative;
-    display:inline-block;
-  }
-  .hero h1 .highlight::after{
-    content:'';position:absolute;bottom:10px;right:0;left:0;
-    height:12px;background:var(--gold-soft);opacity:.3;
-    z-index:-1;
-  }
-  .hero-subtitle{
-    font-size:1.2rem;color:var(--ink-muted);
-    max-width:600px;margin:0 auto 3rem;
-    opacity:0;animation:fadeUp .8s .6s forwards;
-  }
+  .hero-greeting{font-family:'Vazirmatn', sans-serif;font-size:1.1rem;color:var(--accent);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s forwards;letter-spacing:2px;font-weight:500}
+  .hero h1{font-family:'Aref Ruqaa', serif;font-size:clamp(5rem, 15vw, 14rem);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .4s forwards;letter-spacing:-2px}
+  .hero h1 .highlight{color:var(--accent);position:relative;display:inline-block}
+  .hero h1 .highlight::after{content:'';position:absolute;bottom:10px;right:0;left:0;height:12px;background:var(--gold-soft);opacity:.3;z-index:-1}
+  .hero-subtitle{font-size:1.2rem;color:var(--ink-muted);max-width:600px;margin:0 auto 3rem;opacity:0;animation:fadeUp .8s .6s forwards}
 
   .desk{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.2rem;margin-top:3rem;opacity:0;animation:fadeUp .8s .8s forwards}
   .desk-item{background:var(--paper-light);border:1px solid var(--border);padding:1.8rem 1rem;border-radius:4px;cursor:pointer;transition:all .4s cubic-bezier(.2,.8,.2,1);text-decoration:none;color:var(--ink);position:relative;overflow:hidden}
@@ -111,6 +66,62 @@
   .desk-icon{width:48px;height:48px;margin:0 auto 1rem;color:var(--accent)}
   .desk-item h3{font-family:'Aref Ruqaa', serif;font-size:1.2rem;margin-bottom:.5rem}
   .desk-item p{font-size:.85rem;color:var(--ink-muted);line-height:1.6}
+
+  /* PANORAMA - با عکس 31.png */
+  .panorama{position:relative;height:70vh;min-height:400px;overflow:hidden;background:var(--ink);margin:0}
+  .panorama::before,
+  .panorama::after{
+    content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none;
+  }
+  .panorama::before{right:0;background:linear-gradient(to left, var(--ink) 0%, transparent 100%)}
+  .panorama::after{left:0;background:linear-gradient(to right, var(--ink) 0%, transparent 100%)}
+  .pan-image{
+    position:absolute;
+    top:0;right:0;
+    height:100%;
+    width:auto;
+    min-width:250%;
+    object-fit:cover;
+    object-position:center;
+    will-change:transform;
+    transform:translateX(0);
+    filter:brightness(.9) contrast(1.05) saturate(.95);
+  }
+  .pan-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,61,46,.3) 0%, rgba(15,61,46,.1) 40%, rgba(15,61,46,.5) 100%);
+    z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .pan-caption{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(2rem, 5vw, 4rem);
+    color:var(--paper);
+    text-align:center;
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
+    opacity:.9;
+    letter-spacing:2px;
+    padding:0 2rem;
+  }
+  .pan-caption small{
+    display:block;
+    font-family:'Vazirmatn', sans-serif;
+    font-size:.9rem;
+    color:var(--gold-soft);
+    letter-spacing:4px;
+    margin-top:1rem;
+    font-weight:500;
+  }
+  .pan-scroll-hint{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    z-index:4;color:var(--paper);font-size:.8rem;letter-spacing:3px;opacity:.7;
+    display:flex;flex-direction:column;align-items:center;gap:.5rem;
+    animation:hintFade 2s ease-in-out infinite;
+  }
+  .pan-scroll-hint svg{width:20px;height:20px;animation:hintMove 2s ease-in-out infinite}
+  @keyframes hintFade{0%,100%{opacity:.4}50%{opacity:.9}}
+  @keyframes hintMove{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
 
   section{padding:6rem 0;position:relative}
   .section-header{margin-bottom:3.5rem;text-align:center}
@@ -124,33 +135,15 @@
   .poem-card::before{content:'❝';position:absolute;top:-20px;right:20px;font-family:'Aref Ruqaa', serif;font-size:5rem;color:var(--gold-soft);opacity:.4;line-height:1}
   .poem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
   .poem-title{font-family:'Aref Ruqaa', serif;font-size:1.4rem;color:var(--accent);margin-bottom:1.2rem}
-  .poem-text{
-    font-family:'Vazirmatn', sans-serif;
-    font-size:1.1rem;
-    font-weight:500;
-    line-height:2.4;
-    color:var(--ink-soft);
-    text-align:center;
-    margin-bottom:0;
-  }
+  .poem-text{font-family:'Vazirmatn', sans-serif;font-size:1rem;font-weight:500;line-height:2.3;color:var(--ink-soft);text-align:center;margin-bottom:0}
 
   .showreel{background:var(--ink);color:var(--paper);margin:0 -2rem;padding:6rem 2rem;position:relative;overflow:hidden}
   .showreel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(184,134,11,.15), transparent 60%)}
   .showreel .section-title{color:var(--paper)}
   .showreel .section-desc{color:rgba(244,237,224,.7)}
   .showreel .section-label{color:var(--gold-soft)}
-  .video-wrapper{
-    max-width:900px;margin:3rem auto 0;
-    aspect-ratio:16/9;
-    background:#000;
-    border-radius:8px;
-    overflow:hidden;
-    position:relative;
-    box-shadow:0 30px 80px rgba(0,0,0,.5);
-  }
-  .video-wrapper iframe{
-    width:100%;height:100%;border:0;
-  }
+  .video-wrapper{max-width:900px;margin:3rem auto 0;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-wrapper iframe{width:100%;height:100%;border:0}
 
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:2rem}
   .project-card{background:var(--paper-light);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .4s}
@@ -178,8 +171,11 @@
   .form-group input:focus, .form-group textarea:focus{outline:none;border-color:var(--accent)}
   .form-group textarea{resize:vertical;min-height:120px}
 
+  .btn{display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--accent);color:#fff;text-decoration:none;border-radius:50px;font-weight:500;font-size:.95rem;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,134,11,.3)}
+
   footer{background:var(--ink);color:var(--paper);padding:3rem 2rem 2rem;text-align:center;border-top:3px solid var(--accent)}
-  .footer-logo{font-family:'Aref Ruqaa', serif;font-size:1.6rem;margin-bottom:1rem}
+  .footer-logo{font-family:'Aref Ruqaa', serif;font-size:1.6rem;margin-bottom:1rem;letter-spacing:2px}
   .footer-logo span{color:var(--gold-soft)}
   .social-links{display:flex;justify-content:center;gap:1rem;margin:1.5rem 0}
   .social-links a{width:40px;height:40px;border-radius:50%;background:rgba(244,237,224,.1);display:flex;align-items:center;justify-content:center;color:var(--paper);text-decoration:none;transition:all .3s}
@@ -190,21 +186,73 @@
   .reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.2,.8,.2,1)}
   .reveal.visible{opacity:1;transform:translateY(0)}
 
-  @media (max-width: 768px){
-    .nav-links{position:fixed;top:70px;right:-100%;flex-direction:column;background:var(--paper-light);width:80%;height:calc(100vh - 70px);padding:2rem;gap:1.5rem;transition:right .3s;box-shadow:-10px 0 30px rgba(0,0,0,.1)}
-    .nav-links.open{right:0}
-    .menu-toggle{display:block}
-    .logo{font-size:1.1rem}
-    .desk{grid-template-columns:1fr}
-    .contact-grid{grid-template-columns:1fr}
-    section{padding:4rem 0}
-    .showreel{margin:0 -2rem;padding:4rem 2rem}
-    .hero h1{font-size:clamp(3rem, 10vw, 6rem)}
+  @media (max-width: 992px){
+    .desk{grid-template-columns:repeat(3, 1fr);gap:1rem}
+    .desk-item{padding:1.5rem .8rem}
+    .desk-item h3{font-size:1.1rem}
+    .desk-item p{font-size:.8rem}
   }
+
+  @media (max-width: 768px){
+    .nav-links{position:fixed;top:70px;right:-100%;flex-direction:column;background:var(--paper-light);width:75%;height:calc(100vh - 70px);padding:2rem 1.5rem;gap:1.5rem;transition:right .3s;box-shadow:-10px 0 30px rgba(0,0,0,.1);overflow-y:auto}
+    .nav-links.open{right:0}
+    .nav-links a{font-size:1rem;padding:.5rem 0}
+    .menu-toggle{display:block}
+    .nav-inner{padding:.8rem 1.2rem}
+    .logo{font-size:1.15rem;letter-spacing:2px}
+    .hero{padding:6rem 1.2rem 3rem;min-height:auto}
+    .hero h1{font-size:clamp(2.8rem, 11vw, 5rem);margin-bottom:1.5rem}
+    .hero-greeting{font-size:1rem;margin-bottom:1.5rem}
+    .hero-subtitle{font-size:1rem;margin-bottom:2rem}
+    .desk{grid-template-columns:1fr 1fr;gap:.8rem;margin-top:2rem}
+    .desk-item{padding:1.2rem .8rem}
+    .desk-icon{width:36px;height:36px;margin-bottom:.6rem}
+    .desk-item h3{font-size:1rem;margin-bottom:.3rem}
+    .desk-item p{font-size:.75rem}
+    section{padding:3.5rem 0}
+    .section-header{margin-bottom:2.5rem}
+    .section-title{font-size:clamp(1.6rem, 5vw, 2.2rem)}
+    .section-desc{font-size:.9rem}
+    .poems-grid{grid-template-columns:1fr;gap:1.2rem}
+    .poem-card{padding:1.8rem 1.2rem}
+    .poem-title{font-size:1.2rem;margin-bottom:1rem}
+    .poem-text{font-size:.95rem;line-height:2.2}
+    .poem-card::before{font-size:3.5rem;top:-15px;right:15px}
+    .panorama{height:50vh;min-height:280px}
+    .pan-image{min-width:300%}
+    .panorama::before,.panorama::after{width:50px}
+    .pan-caption{font-size:clamp(1.4rem, 5vw, 2.2rem);padding:0 1rem}
+    .pan-caption small{font-size:.75rem;letter-spacing:3px}
+    .pan-scroll-hint{bottom:15px;font-size:.7rem}
+    .showreel{margin:0 -1.2rem;padding:3.5rem 1.2rem}
+    .video-wrapper{margin-top:2rem}
+    .projects-grid{grid-template-columns:1fr;gap:1.2rem}
+    .project-body{padding:1.3rem}
+    .project-title{font-size:1.2rem}
+    .project-desc{font-size:.85rem}
+    .contact-grid{grid-template-columns:1fr;gap:2rem}
+    .contact-form{padding:1.8rem 1.2rem}
+    .contact-info h3{font-size:1.4rem}
+    .contact-item{padding:.8rem 0}
+    footer{padding:2.5rem 1.2rem 1.5rem}
+    .footer-logo{font-size:1.4rem}
+  }
+
   @media (max-width: 480px){
-    .container{padding:0 1.2rem}
-    .poem-card{padding:2rem 1.5rem}
-    .hero h1{font-size:clamp(2.5rem, 8vw, 4rem)}
+    .container{padding:0 1rem}
+    .hero h1{font-size:clamp(2.2rem, 10vw, 3.5rem)}
+    .desk{grid-template-columns:1fr;gap:.7rem}
+    .desk-item{padding:1rem;display:flex;align-items:center;gap:1rem;text-align:right}
+    .desk-icon{width:32px;height:32px;margin:0;flex-shrink:0}
+    .desk-item h3{font-size:.95rem;margin-bottom:.2rem}
+    .desk-item p{font-size:.75rem}
+    .poem-card{padding:1.5rem 1rem}
+    .poem-text{font-size:.9rem;line-height:2.1}
+    .panorama{height:40vh;min-height:240px}
+    .pan-caption{font-size:clamp(1.2rem, 6vw, 1.8rem)}
+    .project-meta{font-size:.75rem;gap:.6rem}
+    .contact-form{padding:1.5rem 1rem}
+    .form-group input, .form-group textarea{padding:.75rem .8rem;font-size:.9rem}
   }
 </style>
 </head>
@@ -243,6 +291,28 @@
         <h3>تهیه‌کنندگی</h3><p>پروژه‌های رسانه‌ای</p>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- PANORAMA - با عکس 31.png -->
+<section class="panorama" id="panorama">
+  <img 
+    src="31.png" 
+    alt="مرتضی جهانی مقدم" 
+    class="pan-image"
+    id="panImage"
+  >
+  <div class="pan-overlay">
+    <div class="pan-caption">
+      جهانی مقدم
+      <small>SHAPER OF WORDS & IMAGES</small>
+    </div>
+  </div>
+  <div class="pan-scroll-hint" id="panHint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    SCROLL
   </div>
 </section>
 
@@ -435,11 +505,51 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.nav-links a').forEach(link=>{link.addEventListener('click', ()=>{document.getElementById('navLinks').classList.remove('open');});});
-  const observer = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});}, {threshold:0.1});
+  document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click', ()=>{document.getElementById('navLinks').classList.remove('open');});
+  });
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});
+  }, {threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-  function handleSubmit(e){e.preventDefault();alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. 🌹');e.target.reset();}
-  window.addEventListener('scroll', ()=>{document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,.05)' : 'none';});
+
+  // PANORAMA
+  const panorama = document.getElementById('panorama');
+  const panImage = document.getElementById('panImage');
+  const panHint = document.getElementById('panHint');
+
+  function updatePanorama(){
+    const rect = panorama.getBoundingClientRect();
+    const viewportH = window.innerHeight;
+    const scrollStart = rect.top + window.scrollY - viewportH;
+    const scrollEnd = rect.top + window.scrollY + rect.height;
+    const scrollRange = scrollEnd - scrollStart;
+    const progress = (window.scrollY - scrollStart) / scrollRange;
+    const clamped = Math.max(0, Math.min(1, progress));
+    const imageWidth = panImage.offsetWidth;
+    const containerWidth = panorama.offsetWidth;
+    const maxTranslate = imageWidth - containerWidth;
+    panImage.style.transform = `translate3d(${-clamped * maxTranslate}px, 0, 0)`;
+    if(panHint){
+      panHint.style.opacity = clamped > 0.05 ? '0' : '1';
+      panHint.style.transition = 'opacity .5s';
+    }
+  }
+
+  window.addEventListener('scroll', updatePanorama, {passive: true});
+  window.addEventListener('resize', updatePanorama);
+  window.addEventListener('load', updatePanorama);
+
+  function handleSubmit(e){
+    e.preventDefault();
+    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. 🌹');
+    e.target.reset();
+  }
+
+  window.addEventListener('scroll', ()=>{
+    document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,.05)' : 'none';
+  });
 </script>
 </body>
 </html>
