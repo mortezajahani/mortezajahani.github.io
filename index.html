@@ -43,7 +43,7 @@
   body::before{
     content:'';
     position:fixed;inset:0;pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.18 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.18 0 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     opacity:.6;z-index:0;
   }
 
@@ -60,7 +60,6 @@
   .nav-links a:hover::after{width:100%}
   .menu-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
 
-  /* HERO - فونت بسیار بزرگ */
   .hero{
     min-height:100vh;
     display:flex;align-items:center;justify-content:center;
@@ -104,7 +103,7 @@
     opacity:0;animation:fadeUp .8s .6s forwards;
   }
 
-  .desk{display:grid;grid-template-columns:repeat(4, 1fr);gap:1.2rem;margin-top:3rem;opacity:0;animation:fadeUp .8s .8s forwards}
+  .desk{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.2rem;margin-top:3rem;opacity:0;animation:fadeUp .8s .8s forwards}
   .desk-item{background:var(--paper-light);border:1px solid var(--border);padding:1.8rem 1rem;border-radius:4px;cursor:pointer;transition:all .4s cubic-bezier(.2,.8,.2,1);text-decoration:none;color:var(--ink);position:relative;overflow:hidden}
   .desk-item::before{content:'';position:absolute;top:0;right:0;width:100%;height:3px;background:linear-gradient(90deg, var(--accent), var(--gold));transform:scaleX(0);transform-origin:right;transition:transform .4s}
   .desk-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);background:#fff}
@@ -120,7 +119,6 @@
   .section-desc{color:var(--ink-muted);max-width:600px;margin:0 auto}
   .divider{width:60px;height:2px;background:linear-gradient(90deg, transparent, var(--accent), transparent);margin:1.5rem auto}
 
-  /* POETRY - فونت خواناتر */
   .poems-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:2rem}
   .poem-card{background:var(--paper-light);border:1px solid var(--border);padding:2.5rem 2rem;border-radius:4px;position:relative;transition:all .4s}
   .poem-card::before{content:'❝';position:absolute;top:-20px;right:20px;font-family:'Aref Ruqaa', serif;font-size:5rem;color:var(--gold-soft);opacity:.4;line-height:1}
@@ -128,15 +126,14 @@
   .poem-title{font-family:'Aref Ruqaa', serif;font-size:1.4rem;color:var(--accent);margin-bottom:1.2rem}
   .poem-text{
     font-family:'Vazirmatn', sans-serif;
-    font-size:1.3rem;
+    font-size:1.1rem;
     font-weight:500;
-    line-height:2.5;
+    line-height:2.4;
     color:var(--ink-soft);
     text-align:center;
     margin-bottom:0;
   }
 
-  /* VIDEO - نمایه تصویری */
   .showreel{background:var(--ink);color:var(--paper);margin:0 -2rem;padding:6rem 2rem;position:relative;overflow:hidden}
   .showreel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(184,134,11,.15), transparent 60%)}
   .showreel .section-title{color:var(--paper)}
@@ -155,7 +152,6 @@
     width:100%;height:100%;border:0;
   }
 
-  /* PRODUCTION - پروژه‌های واقعی */
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:2rem}
   .project-card{background:var(--paper-light);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .4s}
   .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
@@ -167,26 +163,6 @@
   .project-title{font-family:'Aref Ruqaa', serif;font-size:1.4rem;margin-bottom:.8rem;color:var(--ink)}
   .project-desc{font-size:.9rem;color:var(--ink-muted);margin-bottom:1rem;line-height:1.8}
   .project-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--ink-muted);padding-top:1rem;border-top:1px dashed var(--border)}
-
-  .notes-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem}
-  .note-item{background:var(--paper-light);border:1px solid var(--border);padding:2rem;border-radius:4px;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;transition:all .3s;text-decoration:none;color:inherit}
-  .note-item:hover{border-color:var(--accent);transform:translateX(-6px);box-shadow:var(--shadow)}
-  .note-date{font-family:'Aref Ruqaa', serif;font-size:2rem;color:var(--accent);text-align:center;min-width:80px}
-  .note-date small{display:block;font-size:.8rem;color:var(--ink-muted);font-family:'Vazirmatn'}
-  .note-content h3{font-family:'Aref Ruqaa', serif;font-size:1.3rem;margin-bottom:.4rem}
-  .note-content p{font-size:.9rem;color:var(--ink-muted)}
-  .note-arrow{color:var(--accent);font-size:1.5rem;transition:transform .3s}
-  .note-item:hover .note-arrow{transform:translateX(-6px)}
-
-  .media-kit{background:linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);color:var(--paper);margin:0 -2rem;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
-  .media-kit::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><circle cx='50' cy='50' r='1' fill='%23c9a961' opacity='0.3'/></svg>");opacity:.5}
-  .media-kit-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
-  .media-kit h2{font-family:'Aref Ruqaa', serif;font-size:2.2rem;margin-bottom:1rem}
-  .media-kit p{color:rgba(244,237,224,.8);margin-bottom:2rem}
-  .btn{display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--accent);color:#fff;text-decoration:none;border-radius:50px;font-weight:500;font-size:.95rem;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
-  .btn:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,134,11,.3)}
-  .btn-outline{background:transparent;border:1px solid var(--gold-soft);color:var(--paper);margin-right:1rem}
-  .btn-outline:hover{background:var(--gold-soft);color:var(--ink)}
 
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:900px;margin:0 auto}
   .contact-info h3{font-family:'Aref Ruqaa', serif;font-size:1.6rem;margin-bottom:1rem}
@@ -219,16 +195,13 @@
     .nav-links.open{right:0}
     .menu-toggle{display:block}
     .logo{font-size:1.1rem}
-    .desk{grid-template-columns:repeat(2, 1fr)}
+    .desk{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
-    .note-item{grid-template-columns:1fr;text-align:center}
-    .note-arrow{display:none}
     section{padding:4rem 0}
-    .showreel, .media-kit{margin:0 -2rem;padding:4rem 2rem}
+    .showreel{margin:0 -2rem;padding:4rem 2rem}
     .hero h1{font-size:clamp(3rem, 10vw, 6rem)}
   }
   @media (max-width: 480px){
-    .desk{grid-template-columns:1fr}
     .container{padding:0 1.2rem}
     .poem-card{padding:2rem 1.5rem}
     .hero h1{font-size:clamp(2.5rem, 8vw, 4rem)}
@@ -245,7 +218,6 @@
       <li><a href="#poetry">شعر</a></li>
       <li><a href="#media">نمایه تصویری</a></li>
       <li><a href="#production">تهیه‌کنندگی</a></li>
-      <li><a href="#notes">یادداشت‌ها</a></li>
       <li><a href="#contact">تماس</a></li>
     </ul>
     <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
@@ -269,10 +241,6 @@
       <a href="#production" class="desk-item">
         <svg class="desk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6l10-4 10 4-10 4L2 6z"/><path d="M6 8v8c0 1 4 4 6 4s6-3 6-4V8"/><line x1="12" y1="10" x2="12" y2="20"/></svg>
         <h3>تهیه‌کنندگی</h3><p>پروژه‌های رسانه‌ای</p>
-      </a>
-      <a href="#notes" class="desk-item">
-        <svg class="desk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <h3>یادداشت‌ها</h3><p>نقد و نوشته‌های فرهنگی</p>
       </a>
     </div>
   </div>
@@ -421,33 +389,6 @@
   </div>
 </section>
 
-<section id="notes" style="background:var(--paper-dark)">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-label">— مجله‌ی شخصی —</div>
-      <h2 class="section-title">یادداشت‌ها و نقدها</h2>
-      <div class="divider"></div>
-      <p class="section-desc">نوشته‌هایی درباره‌ی ادبیات، سینما و دنیای رسانه.</p>
-    </div>
-    <div class="notes-list">
-      <a href="#" class="note-item reveal"><div class="note-date">۲۵<small>خرداد</small></div><div class="note-content"><h3>چرا شعر امروز، صدای گمشده‌ی رسانه است؟</h3><p>یادداشتی درباره‌ی جای خالی ادبیات در برنامه‌های پربیننده‌ی تلویزیونی...</p></div><div class="note-arrow">←</div></a>
-      <a href="#" class="note-item reveal"><div class="note-date">۱۰<small>خرداد</small></div><div class="note-content"><h3>مروری بر فیلم «...»؛ روایتی از سکوت</h3><p>نقدی بر آخرین اثر کارگردان و تحلیل زبان بصری آن...</p></div><div class="note-arrow">←</div></a>
-      <a href="#" class="note-item reveal"><div class="note-date">۲<small>خرداد</small></div><div class="note-content"><h3>پشت صحنه‌ی یک اجرا؛ آنچه دوربین نمی‌بیند</h3><p>خاطره‌ای از یک اجرای زنده و درس‌هایی که از آن آموختم...</p></div><div class="note-arrow">←</div></a>
-    </div>
-  </div>
-</section>
-
-<section class="media-kit">
-  <div class="media-kit-content reveal">
-    <h2>کیت رسانه‌ای</h2>
-    <p>برای دعوت به اجرا، همکاری در پروژه یا مصاحبه، می‌توانید رزومه‌ی رسمی و تصاویر باکیفیت را از اینجا دریافت کنید.</p>
-    <div>
-      <a href="resume.pdf" download class="btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> دانلود رزومه (PDF)</a>
-      <a href="press-kit.zip" download class="btn btn-outline">دانلود کیت مطبوعاتی</a>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="container">
     <div class="section-header reveal">
@@ -459,9 +400,17 @@
       <div class="contact-info reveal">
         <h3>پیشنهاد همکاری؟</h3>
         <p>برای دعوت به اجرا، همکاری در پروژه‌های رسانه‌ای، یا هر گفت‌وگوی فرهنگی، خوشحال می‌شوم پیامتان را بخوانم.</p>
-        <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>ایمیل</strong><span>morteza.jahanimoghaddam@example.com</span></div></div>
-        <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>مدیر برنامه</strong><span>۰۹۱۲ xxx xxxx</span></div></div>
-        <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>موقعیت</strong><span>تهران، ایران</span></div></div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <strong>ایمیل</strong>
+            <span>Morteza7Jahani@Gmail.com</span>
+          </div>
+        </div>
       </div>
       <form class="contact-form reveal" onsubmit="handleSubmit(event)">
         <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" required placeholder="نام شما"></div>
