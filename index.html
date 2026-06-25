@@ -143,15 +143,15 @@
   .pan-caption small{
     display:block;
     font-family:'Vazirmatn', sans-serif;
-    font-size:.9rem;
+    font-size:1rem;
     color:var(--gold-soft);
-    letter-spacing:4px;
+    letter-spacing:3px;
     margin-top:1rem;
     font-weight:500;
   }
   .pan-scroll-hint{
     position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-    z-index:5;color:var(--paper);font-size:.8rem;letter-spacing:3px;opacity:.7;
+    z-index:5;color:var(--paper);font-size:.9rem;letter-spacing:2px;opacity:.7;
     display:flex;flex-direction:column;align-items:center;gap:.5rem;
     animation:hintFade 2s ease-in-out infinite;
   }
@@ -269,8 +269,8 @@
     .pan-image{min-width:300%}
     .panorama::before,.panorama::after{width:50px}
     .pan-caption{font-size:clamp(1.4rem, 5vw, 2.2rem);padding:0 1rem}
-    .pan-caption small{font-size:.75rem;letter-spacing:3px}
-    .pan-scroll-hint{bottom:15px;font-size:.7rem}
+    .pan-caption small{font-size:.85rem;letter-spacing:2px}
+    .pan-scroll-hint{bottom:15px;font-size:.8rem}
     .showreel{margin:0 -1.2rem;padding:3.5rem 1.2rem}
     .video-wrapper{margin-top:2rem}
     .projects-grid{grid-template-columns:1fr;gap:1.2rem}
@@ -352,24 +352,24 @@
     </div>
   </div>
   <img 
-    src="http://mortezajahani.ir/31.png" 
+    src="https://mortezajahani.ir/31.png" 
     alt="مرتضی جهانی مقدم" 
     class="pan-image hidden" 
     id="panImage" 
     onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';"
-    onerror="console.log('Error loading image from mortezajahani.ir')"
+    onerror="console.log('Error loading image')"
   >
   <div class="pan-overlay">
     <div class="pan-caption">
       جهانی مقدم
-      <small>SHAPER OF WORDS & IMAGES</small>
+      <small>آفریننده‌ی کلمات و تصویرها</small>
     </div>
   </div>
   <div class="pan-scroll-hint" id="panHint">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <polyline points="15 18 9 12 15 6"/>
     </svg>
-    SCROLL
+    بیشتر
   </div>
 </section>
 
