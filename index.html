@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>نام شما | شاعر، مجری و تهیه‌کننده</title>
-<meta name="description" content="وب‌سایت شخصی؛ آرشیو شعر، اجراهای رسانه‌ای و پروژه‌های تهیه‌کنندگی" />
+<title>مرتضی جهانی | شاعر، مجری و تهیه‌کننده</title>
+<meta name="description" content="وب‌سایت شخصی مرتضی جهانی؛ آرشیو شعر، اجراهای رسانه‌ای و پروژه‌های تهیه‌کنندگی" />
 
 <!-- فونت‌های فارسی -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +16,15 @@
     --paper:#f4ede0;
     --paper-light:#faf5e9;
     --paper-dark:#e8dcc3;
-    --ink:#1a1a2e;
-    --ink-soft:#2d2d44;
-    --ink-muted:#5a5a6e;
-    --accent:#8b2635;       /* زرشکی */
-    --gold:#b8860b;         /* طلایی مسی */
-    --gold-soft:#c9a961;
+    --ink:#0a3d2e;           /* سبز سلطنتی تیره */
+    --ink-soft:#1a5c45;      /* سبز ملایم */
+    --ink-muted:#4a6b5e;     /* سبز خاکستری */
+    --accent:#b8860b;        /* طلایی */
+    --gold:#c9a961;          /* طلایی روشن */
+    --gold-soft:#d4b87a;
     --border:#d4c5a9;
-    --shadow: 0 10px 40px rgba(26,26,46,.08);
-    --shadow-lg: 0 20px 60px rgba(26,26,46,.15);
+    --shadow: 0 10px 40px rgba(10,61,46,.08);
+    --shadow-lg: 0 20px 60px rgba(10,61,46,.15);
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -38,7 +38,7 @@
     overflow-x:hidden;
     background-image:
       radial-gradient(circle at 20% 10%, rgba(184,134,11,.04) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(139,38,53,.04) 0%, transparent 40%);
+      radial-gradient(circle at 80% 80%, rgba(10,61,46,.04) 0%, transparent 40%);
   }
 
   /* بافت کاغذ */
@@ -47,7 +47,7 @@
     position:fixed;
     inset:0;
     pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.18 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.24 0 0 0 0 0.18 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     opacity:.6;
     z-index:0;
   }
@@ -300,11 +300,11 @@
   .video-placeholder{
     position:absolute;inset:0;
     display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg, #1a1a2e, #2d2d44);
+    background:linear-gradient(135deg, #0a3d2e, #1a5c45);
   }
   .play-circle{
     width:90px;height:90px;border-radius:50%;
-    background:rgba(139,38,53,.9);
+    background:rgba(184,134,11,.9);
     display:flex;align-items:center;justify-content:center;
     color:#fff;
     transition:all .4s;
@@ -316,8 +316,8 @@
   }
   .play-circle svg{width:32px;height:32px;margin-right:4px}
   @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 0 rgba(139,38,53,.5)}
-    50%{box-shadow:0 0 0 20px rgba(139,38,53,0)}
+    0%,100%{box-shadow:0 0 0 0 rgba(184,134,11,.5)}
+    50%{box-shadow:0 0 0 20px rgba(184,134,11,0)}
   }
 
   /* ============ PRODUCTION ============ */
@@ -581,7 +581,7 @@
 <!-- ============ NAVBAR ============ -->
 <nav>
   <div class="nav-inner">
-    <div class="logo">نام<span>·</span>شما</div>
+    <div class="logo">مرتضی<span>·</span>جهانی</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">خانه</a></li>
       <li><a href="#poetry">شعر</a></li>
@@ -650,15 +650,18 @@
 
     <div class="poems-grid">
       <article class="poem-card reveal">
-        <h3 class="poem-title">در امتداد شب</h3>
+        <h3 class="poem-title">هزار یاد فراموش</h3>
         <div class="poem-text">
-          در امتداد شب، واژه‌ها را می‌چینم<br>
-          چون ستاره‌هایی بر بوم تاریکی<br>
-          تا صبح، راهش را گم نکند...
+          هزار یاد فراموش، آن زیستنی<br>
+          سلام سبز من از واژگان بی وطنی<br><br>
+          زلال زلف تو بر شانه ی سپیده دمت<br>
+          حریر اسود کشمیر و حله یمنی<br><br>
+          به ژرفنای نگاهت شرار خواستن است<br>
+          به مردمان تو سوگند ترجمان منی
         </div>
         <div class="poem-meta">
-          <span>از مجموعه‌ی «سایه‌ی نور»</span>
-          <span>۱۴۰۳</span>
+          <span>از مجموعه‌ی «سلام سبز»</span>
+          <span>۱۴۰۴</span>
         </div>
         <div class="audio-player">
           <button class="play-btn" onclick="toggleAudio(this, 'audio1')">
@@ -674,15 +677,18 @@
       </article>
 
       <article class="poem-card reveal">
-        <h3 class="poem-title">پنجره‌ای رو به تو</h3>
+        <h3 class="poem-title">ای کاش به سنگی</h3>
         <div class="poem-text">
-          پنجره‌ای رو به تو باز کرده‌ام<br>
-          که باد، عطر خاطره‌ها را بیاورد<br>
-          و باران، نامه‌های نرسیده را...
+          رویم به تو افتاد که ای کاش به سنگی...<br>
+          ناگاه شدم آه شدم کاش درنگی...<br><br>
+          مهتاب به مرداب درافتاد از آفاق<br>
+          تا مفت شود پنجه خور آز پلنگی<br><br>
+          آن سینه آیینه که روزی همه ام بود<br>
+          افتاد به دست تو که ای کاش به سنگی...
         </div>
         <div class="poem-meta">
-          <span>از مجموعه‌ی «سایه‌ی نور»</span>
-          <span>۱۴۰۲</span>
+          <span>از مجموعه‌ی «بازگشت»</span>
+          <span>۱۴۰۳</span>
         </div>
         <div class="audio-player">
           <button class="play-btn" onclick="toggleAudio(this, 'audio2')">
@@ -698,14 +704,16 @@
       </article>
 
       <article class="poem-card reveal">
-        <h3 class="poem-title">سکوتِ پرهیاهو</h3>
+        <h3 class="poem-title">آه کنعانم</h3>
         <div class="poem-text">
-          چه پرهیاهوست این سکوتِ میان ما<br>
-          گویی تمام شهر در اتاق ما فریاد می‌زند<br>
-          و ما، فقط نگاه می‌کنیم...
+          شبیه خواب بم تب دارد امید پریشانم<br>
+          فرو میریزد ای گل پیش چشمم طاق بستانم<br><br>
+          تویی آیینه ی تیغ و ترنج و عشق و رسوایی<br>
+          منم پیراهن خونین یوسف آه کنعانم<br><br>
+          نمیرم آتشم عشقم غریوم آهم ایرانم
         </div>
         <div class="poem-meta">
-          <span>منتشر نشده</span>
+          <span>از مجموعه‌ی «پیراهن خونین»</span>
           <span>۱۴۰۴</span>
         </div>
         <div class="audio-player">
@@ -716,7 +724,7 @@
             <div class="audio-title">دکلمه‌ی شاعر</div>
             <div class="audio-bar"><div class="audio-progress"></div></div>
           </div>
-          <div class="audio-duration">۱:۵۸</div>
+          <div class="audio-duration">۴:۲۰</div>
           <audio id="audio3" src="poem3.mp3"></audio>
         </div>
       </article>
@@ -953,7 +961,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="footer-logo">نام<span>·</span>شما</div>
+  <div class="footer-logo">مرتضی<span>·</span>جهانی</div>
   <p style="color:rgba(244,237,224,.7);font-size:.95rem">شاعر · مجری · تهیه‌کننده</p>
   <div class="social-links">
     <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -961,7 +969,7 @@
     <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
   </div>
   <div class="copyright">
-    © ۱۴۰۵ — تمامی حقوق برای «نام شما» محفوظ است. طراحی شده با ♥ برای کلمات و تصویرها.
+    © ۱۴۰۵ — تمامی حقوق برای «مرتضی جهانی» محفوظ است. طراحی شده با ♥ برای کلمات و تصویرها.
   </div>
 </footer>
 
