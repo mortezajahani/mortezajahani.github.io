@@ -67,13 +67,56 @@
   .desk-item h3{font-family:'Aref Ruqaa', serif;font-size:1.2rem;margin-bottom:.5rem}
   .desk-item p{font-size:.85rem;color:var(--ink-muted);line-height:1.6}
 
-  .panorama{position:relative;height:70vh;min-height:400px;overflow:hidden;background:var(--ink);margin:0}
+  /* PANORAMA - با placeholder */
+  .panorama{
+    position:relative;
+    height:70vh;
+    min-height:400px;
+    overflow:hidden;
+    background:var(--ink);
+    margin:0;
+  }
   .panorama::before,
   .panorama::after{
     content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none;
   }
   .panorama::before{right:0;background:linear-gradient(to left, var(--ink) 0%, transparent 100%)}
   .panorama::after{left:0;background:linear-gradient(to right, var(--ink) 0%, transparent 100%)}
+  
+  /* Placeholder وقتی عکس لود نمی‌شود */
+  .pan-placeholder{
+    position:absolute;
+    top:0;right:0;
+    width:100%;height:100%;
+    background:linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 50%, var(--ink) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1;
+  }
+  .pan-placeholder::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 35px,
+        rgba(201,169,97,.03) 35px,
+        rgba(201,169,97,.03) 70px
+      );
+  }
+  .pan-placeholder-icon{
+    width:120px;height:120px;
+    border:2px dashed var(--gold-soft);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-soft);
+    opacity:.4;
+  }
+  .pan-placeholder-icon svg{width:48px;height:48px}
+  
   .pan-image{
     position:absolute;
     top:0;right:0;
@@ -85,11 +128,14 @@
     will-change:transform;
     transform:translateX(0);
     filter:brightness(.9) contrast(1.05) saturate(.95);
+    z-index:2;
   }
+  .pan-image.hidden{display:none}
+  
   .pan-overlay{
     position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(15,61,46,.3) 0%, rgba(15,61,46,.1) 40%, rgba(15,61,46,.5) 100%);
-    z-index:2;
+    z-index:4;
     display:flex;align-items:center;justify-content:center;
     pointer-events:none;
   }
@@ -114,7 +160,7 @@
   }
   .pan-scroll-hint{
     position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-    z-index:4;color:var(--paper);font-size:.8rem;letter-spacing:3px;opacity:.7;
+    z-index:5;color:var(--paper);font-size:.8rem;letter-spacing:3px;opacity:.7;
     display:flex;flex-direction:column;align-items:center;gap:.5rem;
     animation:hintFade 2s ease-in-out infinite;
   }
@@ -305,7 +351,18 @@
 </section>
 
 <section class="panorama" id="panorama">
-  <img src="31.png" alt="مرتضی جهانی مقدم" class="pan-image" id="panImage">
+  <!-- Placeholder وقتی عکس لود نمی‌شود -->
+  <div class="pan-placeholder" id="panPlaceholder">
+    <div class="pan-placeholder-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+    </div>
+  </div>
+  <!-- عکس واقعی -->
+  <img src="31.png" alt="مرتضی جهانی مقدم" class="pan-image hidden" id="panImage" onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';">
   <div class="pan-overlay">
     <div class="pan-caption">
       جهانی مقدم
@@ -445,7 +502,7 @@
           <p class="project-desc">مجموعه‌ای گفتگو محور پیرامون شبهات دینی؛ بررسی پرسش‌ها و چالش‌های اعتقادی با رویکردی تحلیلی و پاسخ‌گو.</p>
           <div class="project-meta">
             <span>🎙 گفتگو محور</span>
-            <span>💧 به رنگ آب</span>
+            <span> به رنگ آب</span>
             <span>📖 شبهات دینی</span>
           </div>
         </div>
@@ -552,7 +609,7 @@
 
   function handleSubmit(e){
     e.preventDefault();
-    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. 🌹');
+    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. ');
     e.target.reset();
   }
 
