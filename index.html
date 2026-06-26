@@ -121,7 +121,8 @@
     filter:brightness(.9) contrast(1.05) saturate(.95);
     z-index:2;
   }
-  .pan-image.hidden{display:none}
+  .pan-image{opacity:0;transition:opacity .4s}
+  .pan-image.loaded{opacity:1}
   
   .pan-overlay{
     position:absolute;inset:0;
@@ -368,9 +369,9 @@
   <img 
     src="31.png" 
     alt="مرتضی جهانی مقدم" 
-    class="pan-image hidden" 
+    class="pan-image" 
     id="panImage" 
-    onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';"
+    onload="this.classList.add('loaded'); document.getElementById('panPlaceholder').style.display='none'; updatePanorama();"
     onerror="console.log('Error loading 31.png')"
   >
   <div class="pan-overlay">
@@ -615,7 +616,7 @@
 
   window.addEventListener('scroll', updatePanorama, {passive: true});
   window.addEventListener('resize', updatePanorama);
-  window.addEventListener('load', updatePanorama);
+  window.addEventListener('load', ()=>setTimeout(updatePanorama,100));
 
   function handleSubmit(e){
     e.preventDefault();
