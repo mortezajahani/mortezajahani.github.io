@@ -27,7 +27,7 @@
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     font-family:'Vazirmatn', sans-serif;
     background:var(--paper);
@@ -35,7 +35,6 @@
     line-height:1.9;
     font-weight:400;
     overflow-x:hidden;
-    width:100%;
   }
 
   .container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
@@ -68,98 +67,73 @@
   .desk-item h3{font-family:'Aref Ruqaa', serif;font-size:1.2rem;margin-bottom:.5rem}
   .desk-item p{font-size:.85rem;color:var(--ink-muted);line-height:1.6}
 
-  /* ============ PANORAMA - FULL SCREEN BACKGROUND ============ */
+  /* ============ PANORAMA - شکاف روی عکس ============ */
   .panorama{
     position:relative;
-    height:25vh;
-    min-height:180px;
-    max-height:280px;
+    height:22vh;
+    min-height:160px;
+    max-height:240px;
     overflow:hidden;
-    margin:0;
-    z-index:5;
+    background:var(--ink);
+    margin:2rem 0;
+    border-top:2px solid var(--gold-soft);
+    border-bottom:2px solid var(--gold-soft);
   }
   
-  /* عکس تمام‌صفحه در پشت سایت */
-  .pan-bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    z-index:0;
-    overflow:hidden;
-    pointer-events:none;
-  }
-  .pan-bg-image{
+  /* عکس عریض داخل نوار - فقط در همین بخش */
+  .pan-image{
     position:absolute;
     top:0;
     left:0;
     height:100%;
-    width:auto;
-    min-width:100%;
+    width:300%;
     object-fit:cover;
     object-position:center;
     will-change:transform;
-    filter:brightness(.85) contrast(1.1) saturate(1.1);
+    filter:brightness(.8) contrast(1.1) saturate(1.1);
   }
   
-  /* نوار پانوراما - پنجره‌ای روی عکس */
-  .pan-window{
-    position:relative;
-    width:100%;
-    height:100%;
-    background:rgba(15,61,46,.4);
-    backdrop-filter:blur(2px);
-    -webkit-backdrop-filter:blur(2px);
+  /* لایه‌ی تیره روی عکس */
+  .pan-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(15,61,46,.5) 0%, rgba(15,61,46,.2) 50%, rgba(15,61,46,.6) 100%);
+    z-index:2;
+  }
+  
+  /* متن روی نوار */
+  .pan-caption{
+    position:absolute;
+    inset:0;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
-    border-top:1px solid rgba(201,169,97,.3);
-    border-bottom:1px solid rgba(201,169,97,.3);
-  }
-  .pan-window::before,
-  .pan-window::after{
-    content:'';
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:100px;
-    z-index:2;
+    z-index:3;
     pointer-events:none;
   }
-  .pan-window::before{
-    right:0;
-    background:linear-gradient(to left, var(--paper) 0%, transparent 100%);
-  }
-  .pan-window::after{
-    left:0;
-    background:linear-gradient(to right, var(--paper) 0%, transparent 100%);
-  }
-  
-  .pan-caption{
+  .pan-caption-text{
     font-family:'Aref Ruqaa', serif;
-    font-size:clamp(1.8rem, 4vw, 3rem);
+    font-size:clamp(1.6rem, 4vw, 2.8rem);
     color:var(--paper);
     text-align:center;
     text-shadow:0 4px 30px rgba(0,0,0,.7);
-    opacity:.95;
     letter-spacing:2px;
     padding:0 2rem;
-    z-index:3;
-    position:relative;
   }
-  .pan-caption small{
+  .pan-caption-text small{
     display:block;
     font-family:'Vazirmatn', sans-serif;
-    font-size:.95rem;
+    font-size:.9rem;
     color:var(--gold-soft);
     letter-spacing:3px;
-    margin-top:.8rem;
+    margin-top:.6rem;
     font-weight:500;
   }
+  
   .pan-scroll-hint{
     position:absolute;
-    bottom:8px;
+    bottom:10px;
     left:50%;
     transform:translateX(-50%);
     z-index:4;
@@ -176,16 +150,6 @@
   .pan-scroll-hint svg{width:16px;height:16px;animation:hintMove 2s ease-in-out infinite}
   @keyframes hintFade{0%,100%{opacity:.3}50%{opacity:.8}}
   @keyframes hintMove{0%,100%{transform:translateX(0)}50%{transform:translateX(-8px)}}
-
-  /* بخش‌های تمام‌عرض بدون نوار خالی */
-  .full-width{
-    width:100vw;
-    position:relative;
-    left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
-  }
 
   section{padding:6rem 0;position:relative}
   .section-header{margin-bottom:3.5rem;text-align:center}
@@ -212,18 +176,8 @@
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:2rem}
   .project-card{background:var(--paper-light);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .4s}
   .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-  .project-thumb{
-    aspect-ratio:16/10;
-    background:linear-gradient(135deg, var(--ink), var(--ink-soft));
-    position:relative;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .project-thumb img{
-    width:100%;height:100%;
-    object-fit:cover;
-    transition:transform .4s;
-  }
+  .project-thumb{aspect-ratio:16/10;background:linear-gradient(135deg, var(--ink), var(--ink-soft));position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .project-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
   .project-card:hover .project-thumb img{transform:scale(1.05)}
   .project-thumb::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, transparent, rgba(0,0,0,.3))}
   .project-body{padding:1.8rem}
@@ -307,9 +261,9 @@
     .poem-title{font-size:1.2rem;margin-bottom:1rem}
     .poem-text{font-size:.85rem;line-height:2.1}
     .poem-card::before{font-size:3.5rem;top:-15px;right:15px}
-    .panorama{height:20vh;min-height:140px}
-    .pan-caption{font-size:clamp(1.2rem, 5vw, 2rem);padding:0 1rem}
-    .pan-caption small{font-size:.8rem;letter-spacing:2px}
+    .panorama{height:18vh;min-height:130px;margin:1.5rem 0}
+    .pan-caption-text{font-size:clamp(1.2rem, 5vw, 2rem);padding:0 1rem}
+    .pan-caption-text small{font-size:.8rem;letter-spacing:2px}
     .pan-scroll-hint{bottom:5px;font-size:.7rem}
     .showreel{padding:3.5rem 1.2rem}
     .video-wrapper{margin-top:2rem}
@@ -335,8 +289,8 @@
     .desk-item p{font-size:.75rem}
     .poem-card{padding:1.5rem 1rem}
     .poem-text{font-size:.8rem;line-height:2}
-    .panorama{height:18vh;min-height:120px}
-    .pan-caption{font-size:clamp(1rem, 6vw, 1.6rem)}
+    .panorama{height:16vh;min-height:110px}
+    .pan-caption-text{font-size:clamp(1rem, 6vw, 1.6rem)}
     .project-meta{font-size:.75rem;gap:.6rem}
     .contact-form{padding:1.5rem 1rem}
     .form-group input, .form-group textarea{padding:.75rem .8rem;font-size:.9rem}
@@ -344,16 +298,6 @@
 </style>
 </head>
 <body>
-
-<!-- عکس تمام‌صفحه در پشت سایت -->
-<div class="pan-bg" id="panBg">
-  <img 
-    src="31.png" 
-    alt="مرتضی جهانی مقدم" 
-    class="pan-bg-image" 
-    id="panBgImage"
-  >
-</div>
 
 <nav>
   <div class="nav-inner">
@@ -391,19 +335,26 @@
   </div>
 </section>
 
-<!-- نوار پانوراما - پنجره‌ای روی عکس تمام‌صفحه -->
+<!-- نوار پانوراما - شکاف روی عکس -->
 <section class="panorama" id="panorama">
-  <div class="pan-window">
-    <div class="pan-caption">
+  <img 
+    src="31.png" 
+    alt="مرتضی جهانی مقدم" 
+    class="pan-image" 
+    id="panImage"
+  >
+  <div class="pan-overlay"></div>
+  <div class="pan-caption">
+    <div class="pan-caption-text">
       جهانی مقدم
       <small>کلمه آغاز روایت هاست</small>
     </div>
-    <div class="pan-scroll-hint" id="panHint">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-      بیشتر
-    </div>
+  </div>
+  <div class="pan-scroll-hint" id="panHint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    بیشتر
   </div>
 </section>
 
@@ -482,18 +433,16 @@
   </div>
 </section>
 
-<section class="full-width">
-  <div class="showreel">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">— روی صحنه —</div>
-        <h2 class="section-title">نمایه تصویری</h2>
-        <div class="divider"></div>
-        <p class="section-desc">شعرخوانی و اجراهای زنده</p>
-      </div>
-      <div class="video-wrapper reveal">
-        <iframe src="https://www.aparat.com/video/video/embed/videohash/frh463x/vt/frame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-      </div>
+<section class="showreel">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">— روی صحنه —</div>
+      <h2 class="section-title">نمایه تصویری</h2>
+      <div class="divider"></div>
+      <p class="section-desc">شعرخوانی و اجراهای زنده</p>
+    </div>
+    <div class="video-wrapper reveal">
+      <iframe src="https://www.aparat.com/video/video/embed/videohash/frh463x/vt/frame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
   </div>
 </section>
@@ -531,7 +480,7 @@
           <h3 class="project-title">به رنگ آب</h3>
           <p class="project-desc">مجموعه‌ای گفتگو محور پیرامون شبهات دینی؛ بررسی پرسش‌ها و چالش‌های اعتقادی با رویکردی تحلیلی و پاسخ‌گو.</p>
           <div class="project-meta">
-            <span> گفتگو محور</span>
+            <span>🎙 گفتگو محور</span>
             <span>💧 به رنگ آب</span>
             <span>📖 شبهات دینی</span>
           </div>
@@ -595,94 +544,4 @@
   <p style="color:rgba(244,237,224,.7);font-size:.95rem">شاعر · مجری · تهیه‌کننده</p>
   <div class="social-links">
     <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-    <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
-    <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
-  </div>
-  <div class="copyright">© ۱۴۰۵ — تمامی حقوق برای مرتضی جهانی مقدم محفوظ است. طراحی شده با ♥ برای کلمات و تصویرها.</div>
-</footer>
-
-<script>
-  document.querySelectorAll('.nav-links a').forEach(link=>{
-    link.addEventListener('click', ()=>{document.getElementById('navLinks').classList.remove('open');});
-  });
-
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});
-  }, {threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-  // پانورامای تمام‌صفحه
-  const panBgImage = document.getElementById('panBgImage');
-  const panHint = document.getElementById('panHint');
-
-  function updatePanorama(){
-    const viewportW = window.innerWidth;
-    const imageWidth = panBgImage.offsetWidth;
-    const maxTranslate = Math.max(0, imageWidth - viewportW);
-    
-    // محاسبه پیشرفت اسکرول کل صفحه
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = window.scrollY / docHeight;
-    const clamped = Math.max(0, Math.min(1, scrollProgress));
-    
-    // حرکت عکس بر اساس اسکرول کل صفحه
-    panBgImage.style.transform = `translate3d(${-clamped * maxTranslate * 0.5}px, 0, 0)`;
-    
-    // محو کردن hint
-    if(panHint){
-      panHint.style.opacity = window.scrollY > 100 ? '0' : '1';
-      panHint.style.transition = 'opacity .5s';
-    }
-  }
-
-  window.addEventListener('scroll', updatePanorama, {passive: true});
-  window.addEventListener('resize', updatePanorama);
-  window.addEventListener('load', updatePanorama);
-
-  function handleSubmit(e){
-    e.preventDefault();
-    alert('پیام شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیرم. 🌹');
-    e.target.reset();
-  }
-
-  window.addEventListener('scroll', ()=>{
-    document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,.05)' : 'none';
-  });
-
-  // دکمه فراری
-  const escapeBtn = document.getElementById('escapeBtn');
-  const contactForm = document.querySelector('.contact-form');
-  let escapeCount = 0;
-  
-  escapeBtn.addEventListener('mouseover', function(e) {
-    escapeCount++;
-    
-    if(escapeCount > 5) {
-      this.style.position = 'static';
-      this.style.transform = 'none';
-      return;
-    }
-    
-    const formRect = contactForm.getBoundingClientRect();
-    const btnRect = this.getBoundingClientRect();
-    
-    const maxX = formRect.width - btnRect.width - 20;
-    const maxY = formRect.height - btnRect.height - 20;
-    
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-    
-    this.style.position = 'absolute';
-    this.style.left = randomX + 'px';
-    this.style.top = randomY + 'px';
-    this.style.transition = 'all 0.4s cubic-bezier(.2,.8,.2,1)';
-    this.style.zIndex = '10';
-  });
-
-  escapeBtn.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    this.dispatchEvent(new MouseEvent('mouseover'));
-  });
-</script>
-</body>
-</html>
+    <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.
