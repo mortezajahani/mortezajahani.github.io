@@ -35,6 +35,7 @@
     line-height:1.9;
     font-weight:400;
     overflow-x:hidden;
+    width:100%;
   }
 
   .container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
@@ -67,97 +68,124 @@
   .desk-item h3{font-family:'Aref Ruqaa', serif;font-size:1.2rem;margin-bottom:.5rem}
   .desk-item p{font-size:.85rem;color:var(--ink-muted);line-height:1.6}
 
-  .panorama{position:relative;height:70vh;min-height:400px;overflow:hidden;background:var(--ink);margin:0}
-  .panorama::before,
-  .panorama::after{
-    content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none;
+  /* ============ PANORAMA - FULL SCREEN BACKGROUND ============ */
+  .panorama{
+    position:relative;
+    height:25vh;
+    min-height:180px;
+    max-height:280px;
+    overflow:hidden;
+    margin:0;
+    z-index:5;
   }
-  .panorama::before{right:0;background:linear-gradient(to left, var(--ink) 0%, transparent 100%)}
-  .panorama::after{left:0;background:linear-gradient(to right, var(--ink) 0%, transparent 100%)}
   
-  .pan-placeholder{
-    position:absolute;
-    top:0;right:0;
-    width:100%;height:100%;
-    background:linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 50%, var(--ink) 100%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:1;
+  /* عکس تمام‌صفحه در پشت سایت */
+  .pan-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    z-index:0;
+    overflow:hidden;
+    pointer-events:none;
   }
-  .pan-placeholder::before{
-    content:'';
+  .pan-bg-image{
     position:absolute;
-    inset:0;
-    background:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 35px,
-        rgba(201,169,97,.03) 35px,
-        rgba(201,169,97,.03) 70px
-      );
-  }
-  .pan-placeholder-icon{
-    width:120px;height:120px;
-    border:2px dashed var(--gold-soft);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--gold-soft);
-    opacity:.4;
-  }
-  .pan-placeholder-icon svg{width:48px;height:48px}
-  
-  .pan-image{
-    position:absolute;
-    top:0;right:0;
+    top:0;
+    left:0;
     height:100%;
     width:auto;
-    min-width:250%;
+    min-width:100%;
     object-fit:cover;
     object-position:center;
     will-change:transform;
-    transform:translateX(0);
-    filter:brightness(.9) contrast(1.05) saturate(.95);
-    z-index:2;
+    filter:brightness(.85) contrast(1.1) saturate(1.1);
   }
-  .pan-image.hidden{display:none}
   
-  .pan-overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(15,61,46,.3) 0%, rgba(15,61,46,.1) 40%, rgba(15,61,46,.5) 100%);
-    z-index:4;
-    display:flex;align-items:center;justify-content:center;
+  /* نوار پانوراما - پنجره‌ای روی عکس */
+  .pan-window{
+    position:relative;
+    width:100%;
+    height:100%;
+    background:rgba(15,61,46,.4);
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-top:1px solid rgba(201,169,97,.3);
+    border-bottom:1px solid rgba(201,169,97,.3);
+  }
+  .pan-window::before,
+  .pan-window::after{
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100px;
+    z-index:2;
     pointer-events:none;
   }
+  .pan-window::before{
+    right:0;
+    background:linear-gradient(to left, var(--paper) 0%, transparent 100%);
+  }
+  .pan-window::after{
+    left:0;
+    background:linear-gradient(to right, var(--paper) 0%, transparent 100%);
+  }
+  
   .pan-caption{
     font-family:'Aref Ruqaa', serif;
-    font-size:clamp(2rem, 5vw, 4rem);
+    font-size:clamp(1.8rem, 4vw, 3rem);
     color:var(--paper);
     text-align:center;
-    text-shadow:0 4px 30px rgba(0,0,0,.5);
-    opacity:.9;
+    text-shadow:0 4px 30px rgba(0,0,0,.7);
+    opacity:.95;
     letter-spacing:2px;
     padding:0 2rem;
+    z-index:3;
+    position:relative;
   }
   .pan-caption small{
     display:block;
     font-family:'Vazirmatn', sans-serif;
-    font-size:1rem;
+    font-size:.95rem;
     color:var(--gold-soft);
     letter-spacing:3px;
-    margin-top:1rem;
+    margin-top:.8rem;
     font-weight:500;
   }
   .pan-scroll-hint{
-    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-    z-index:5;color:var(--paper);font-size:.9rem;letter-spacing:2px;opacity:.7;
-    display:flex;flex-direction:column;align-items:center;gap:.5rem;
+    position:absolute;
+    bottom:8px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:4;
+    color:var(--paper);
+    font-size:.75rem;
+    letter-spacing:2px;
+    opacity:.7;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.3rem;
     animation:hintFade 2s ease-in-out infinite;
   }
-  .pan-scroll-hint svg{width:20px;height:20px;animation:hintMove 2s ease-in-out infinite}
-  @keyframes hintFade{0%,100%{opacity:.4}50%{opacity:.9}}
-  @keyframes hintMove{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
+  .pan-scroll-hint svg{width:16px;height:16px;animation:hintMove 2s ease-in-out infinite}
+  @keyframes hintFade{0%,100%{opacity:.3}50%{opacity:.8}}
+  @keyframes hintMove{0%,100%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+
+  /* بخش‌های تمام‌عرض بدون نوار خالی */
+  .full-width{
+    width:100vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+  }
 
   section{padding:6rem 0;position:relative}
   .section-header{margin-bottom:3.5rem;text-align:center}
@@ -173,7 +201,7 @@
   .poem-title{font-family:'Aref Ruqaa', serif;font-size:1.4rem;color:var(--accent);margin-bottom:1.2rem}
   .poem-text{font-family:'Vazirmatn', sans-serif;font-size:.9rem;font-weight:500;line-height:2.2;color:var(--ink-soft);text-align:center;margin-bottom:0}
 
-  .showreel{background:var(--ink);color:var(--paper);margin:0 -2rem;padding:6rem 2rem;position:relative;overflow:hidden}
+  .showreel{background:var(--ink);color:var(--paper);padding:6rem 2rem;position:relative;overflow:hidden}
   .showreel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(184,134,11,.15), transparent 60%)}
   .showreel .section-title{color:var(--paper)}
   .showreel .section-desc{color:rgba(244,237,224,.7)}
@@ -279,13 +307,11 @@
     .poem-title{font-size:1.2rem;margin-bottom:1rem}
     .poem-text{font-size:.85rem;line-height:2.1}
     .poem-card::before{font-size:3.5rem;top:-15px;right:15px}
-    .panorama{height:50vh;min-height:280px}
-    .pan-image{min-width:300%}
-    .panorama::before,.panorama::after{width:50px}
-    .pan-caption{font-size:clamp(1.4rem, 5vw, 2.2rem);padding:0 1rem}
-    .pan-caption small{font-size:.85rem;letter-spacing:2px}
-    .pan-scroll-hint{bottom:15px;font-size:.8rem}
-    .showreel{margin:0 -1.2rem;padding:3.5rem 1.2rem}
+    .panorama{height:20vh;min-height:140px}
+    .pan-caption{font-size:clamp(1.2rem, 5vw, 2rem);padding:0 1rem}
+    .pan-caption small{font-size:.8rem;letter-spacing:2px}
+    .pan-scroll-hint{bottom:5px;font-size:.7rem}
+    .showreel{padding:3.5rem 1.2rem}
     .video-wrapper{margin-top:2rem}
     .projects-grid{grid-template-columns:1fr;gap:1.2rem}
     .project-body{padding:1.3rem}
@@ -309,8 +335,8 @@
     .desk-item p{font-size:.75rem}
     .poem-card{padding:1.5rem 1rem}
     .poem-text{font-size:.8rem;line-height:2}
-    .panorama{height:40vh;min-height:240px}
-    .pan-caption{font-size:clamp(1.2rem, 6vw, 1.8rem)}
+    .panorama{height:18vh;min-height:120px}
+    .pan-caption{font-size:clamp(1rem, 6vw, 1.6rem)}
     .project-meta{font-size:.75rem;gap:.6rem}
     .contact-form{padding:1.5rem 1rem}
     .form-group input, .form-group textarea{padding:.75rem .8rem;font-size:.9rem}
@@ -318,6 +344,16 @@
 </style>
 </head>
 <body>
+
+<!-- عکس تمام‌صفحه در پشت سایت -->
+<div class="pan-bg" id="panBg">
+  <img 
+    src="31.png" 
+    alt="مرتضی جهانی مقدم" 
+    class="pan-bg-image" 
+    id="panBgImage"
+  >
+</div>
 
 <nav>
   <div class="nav-inner">
@@ -355,35 +391,19 @@
   </div>
 </section>
 
+<!-- نوار پانوراما - پنجره‌ای روی عکس تمام‌صفحه -->
 <section class="panorama" id="panorama">
-  <div class="pan-placeholder" id="panPlaceholder">
-    <div class="pan-placeholder-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-        <circle cx="8.5" cy="8.5" r="1.5"/>
-        <polyline points="21 15 16 10 5 21"/>
-      </svg>
-    </div>
-  </div>
-  <img 
-    src="31.png" 
-    alt="مرتضی جهانی مقدم" 
-    class="pan-image hidden" 
-    id="panImage" 
-    onload="this.classList.remove('hidden'); document.getElementById('panPlaceholder').style.display='none';"
-    onerror="console.log('Error loading 31.png')"
-  >
-  <div class="pan-overlay">
+  <div class="pan-window">
     <div class="pan-caption">
       جهانی مقدم
       <small>کلمه آغاز روایت هاست</small>
     </div>
-  </div>
-  <div class="pan-scroll-hint" id="panHint">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="15 18 9 12 15 6"/>
-    </svg>
-    بیشتر
+    <div class="pan-scroll-hint" id="panHint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      بیشتر
+    </div>
   </div>
 </section>
 
@@ -462,7 +482,7 @@
   </div>
 </section>
 
-<section id="media" style="padding:0">
+<section class="full-width">
   <div class="showreel">
     <div class="container">
       <div class="section-header reveal">
@@ -511,7 +531,7 @@
           <h3 class="project-title">به رنگ آب</h3>
           <p class="project-desc">مجموعه‌ای گفتگو محور پیرامون شبهات دینی؛ بررسی پرسش‌ها و چالش‌های اعتقادی با رویکردی تحلیلی و پاسخ‌گو.</p>
           <div class="project-meta">
-            <span>🎙 گفتگو محور</span>
+            <span> گفتگو محور</span>
             <span>💧 به رنگ آب</span>
             <span>📖 شبهات دینی</span>
           </div>
@@ -528,7 +548,7 @@
           <div class="project-meta">
             <span>🎬 مستند</span>
             <span>⛽ تاریخچه نفت</span>
-            <span> قدرت نرم</span>
+            <span>🌍 قدرت نرم</span>
           </div>
         </div>
       </article>
@@ -578,7 +598,7 @@
     <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
     <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
   </div>
-  <div class="copyright">© ۱۰۵ — تمامی حقوق برای مرتضی جهانی مقدم محفوظ است. طراحی شده با ♥ برای کلمات و تصویرها.</div>
+  <div class="copyright">© ۱۴۰۵ — تمامی حقوق برای مرتضی جهانی مقدم محفوظ است. طراحی شده با ♥ برای کلمات و تصویرها.</div>
 </footer>
 
 <script>
@@ -591,24 +611,26 @@
   }, {threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-  const panorama = document.getElementById('panorama');
-  const panImage = document.getElementById('panImage');
+  // پانورامای تمام‌صفحه
+  const panBgImage = document.getElementById('panBgImage');
   const panHint = document.getElementById('panHint');
 
   function updatePanorama(){
-    const rect = panorama.getBoundingClientRect();
-    const viewportH = window.innerHeight;
-    const scrollStart = rect.top + window.scrollY - viewportH;
-    const scrollEnd = rect.top + window.scrollY + rect.height;
-    const scrollRange = scrollEnd - scrollStart;
-    const progress = (window.scrollY - scrollStart) / scrollRange;
-    const clamped = Math.max(0, Math.min(1, progress));
-    const imageWidth = panImage.offsetWidth;
-    const containerWidth = panorama.offsetWidth;
-    const maxTranslate = imageWidth - containerWidth;
-    panImage.style.transform = `translate3d(${-clamped * maxTranslate}px, 0, 0)`;
+    const viewportW = window.innerWidth;
+    const imageWidth = panBgImage.offsetWidth;
+    const maxTranslate = Math.max(0, imageWidth - viewportW);
+    
+    // محاسبه پیشرفت اسکرول کل صفحه
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = window.scrollY / docHeight;
+    const clamped = Math.max(0, Math.min(1, scrollProgress));
+    
+    // حرکت عکس بر اساس اسکرول کل صفحه
+    panBgImage.style.transform = `translate3d(${-clamped * maxTranslate * 0.5}px, 0, 0)`;
+    
+    // محو کردن hint
     if(panHint){
-      panHint.style.opacity = clamped > 0.05 ? '0' : '1';
+      panHint.style.opacity = window.scrollY > 100 ? '0' : '1';
       panHint.style.transition = 'opacity .5s';
     }
   }
@@ -627,7 +649,7 @@
     document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,.05)' : 'none';
   });
 
-  // دکمه فراری 😄
+  // دکمه فراری
   const escapeBtn = document.getElementById('escapeBtn');
   const contactForm = document.querySelector('.contact-form');
   let escapeCount = 0;
@@ -635,7 +657,6 @@
   escapeBtn.addEventListener('mouseover', function(e) {
     escapeCount++;
     
-    // بعد از 5 بار فرار، دکمه تسلیم می‌شود!
     if(escapeCount > 5) {
       this.style.position = 'static';
       this.style.transform = 'none';
@@ -645,15 +666,12 @@
     const formRect = contactForm.getBoundingClientRect();
     const btnRect = this.getBoundingClientRect();
     
-    // محاسبه محدوده مجاز برای حرکت
     const maxX = formRect.width - btnRect.width - 20;
     const maxY = formRect.height - btnRect.height - 20;
     
-    // موقعیت تصادفی
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
     
-    // اعمال موقعیت جدید
     this.style.position = 'absolute';
     this.style.left = randomX + 'px';
     this.style.top = randomY + 'px';
@@ -661,7 +679,6 @@
     this.style.zIndex = '10';
   });
 
-  // در موبایل، با touch هم کار کند
   escapeBtn.addEventListener('touchstart', function(e) {
     e.preventDefault();
     this.dispatchEvent(new MouseEvent('mouseover'));
