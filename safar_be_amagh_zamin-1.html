@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سفر به اعماق زمین | علوم ششم</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,"Segoe UI",sans-serif;background:#071426;color:#eef7ff}
+body{overflow-x:hidden}.app{min-height:100vh;background:radial-gradient(circle at 50% 0,#123b63 0,#071426 48%,#030914 100%)}
+button,input{font:inherit}button{cursor:pointer;border:0}.screen{display:none;min-height:100vh;padding:24px}.screen.active{display:flex;align-items:center;justify-content:center}
+.panel{width:min(1080px,100%);background:rgba(9,25,43,.9);border:1px solid #2c648c;border-radius:28px;box-shadow:0 25px 70px #0008;backdrop-filter:blur(10px);padding:24px}
+h1,h2,h3,p{margin-top:0}.center{text-align:center}.muted{color:#a9c4d8}.small{font-size:.88rem}
+.btn{background:linear-gradient(135deg,#19b6c9,#1975df);color:#fff;padding:13px 22px;border-radius:15px;font-weight:800;box-shadow:0 8px 20px #057b9c44;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.alt{background:#183653;border:1px solid #3c6685}.btn.warn{background:linear-gradient(135deg,#ff9f1c,#ef4f3b)}
+.start-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}.title{font-size:clamp(2.2rem,6vw,4.7rem);margin-bottom:8px;color:#7de8ff;text-shadow:0 0 25px #1bc5ff55}.subtitle{font-size:1.35rem;color:#d8ecf7}.credits{line-height:2;color:#b9d3e6;margin:22px 0}.start-art{height:410px;position:relative;display:grid;place-items:center}
+.earth{width:min(310px,65vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6de0ff 0 5%,#1764a8 30%,#0a315d 62%,#041526 63%);box-shadow:inset -35px -30px 70px #0008,0 0 70px #28c8ff66;position:relative;animation:float 4s ease-in-out infinite}.earth:before{content:"";position:absolute;inset:17%;border-radius:50%;border:3px dashed #73eaff55;transform:rotate(-18deg)}.land{position:absolute;background:#42b77b;border-radius:45% 55% 40% 60%;opacity:.85}.l1{width:80px;height:48px;top:75px;left:55px;transform:rotate(18deg)}.l2{width:105px;height:60px;bottom:68px;right:45px;transform:rotate(-22deg)}.probe{position:absolute;font-size:70px;right:8%;bottom:10%;filter:drop-shadow(0 10px 12px #000);animation:float 3s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-12px)}}@keyframes pulse{50%{opacity:.45;transform:scale(1.08)}}@keyframes wave{to{transform:translateX(140px)}}
+.topbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 16px;background:#061221ee;border-bottom:1px solid #28506b;flex-wrap:wrap}.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:#102a42;border:1px solid #315a74;border-radius:12px;padding:8px 12px;font-weight:800}.sound{margin-inline-start:auto}.content{width:min(1120px,100%);margin:20px auto}.map{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stage{position:relative;text-align:right;padding:18px;border-radius:20px;background:linear-gradient(145deg,#102c45,#091a2b);border:1px solid #315a73;min-height:130px;color:#fff;transition:.2s}.stage:not(.locked):hover{transform:translateY(-4px);border-color:#57d9f0}.stage.locked{opacity:.4;cursor:not-allowed}.stage.done{border-color:#45d79a;background:linear-gradient(145deg,#103f3d,#0a2530)}.stage .icon{font-size:2rem}.stage .badge{position:absolute;left:12px;top:12px;color:#69efad;font-weight:900}.mission{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px}.mission h2{margin:0;color:#8eefff}.scene{border-radius:24px;min-height:150px;margin-bottom:18px;position:relative;overflow:hidden;border:1px solid #345d76;background:linear-gradient(180deg,#102f4b,#081522);padding:24px}.scene.tunnel{background:radial-gradient(circle at 20% 50%,#1b5b86,#071522 58%)}.scene.mantle{background:radial-gradient(circle at 50% 90%,#ff7b21aa,#3a1720 55%,#081522)}.scene.core{background:radial-gradient(circle at 50% 50%,#ffe66d55,#a42d19 30%,#220d16 65%,#070b14)}.wave{height:3px;width:140%;background:#56e6ff;box-shadow:0 0 12px #56e6ff;position:absolute;top:45%;left:-140px;animation:wave 2s linear infinite}.wave:nth-child(2){top:60%;animation-delay:.6s}.wave:nth-child(3){top:72%;animation-delay:1.2s}.question{background:#0c2035;border:1px solid #2d5872;border-radius:22px;padding:22px}.qtext{font-size:1.25rem;line-height:1.9;margin-bottom:18px}.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option{padding:15px;text-align:right;border-radius:14px;background:#142f47;color:#eaf8ff;border:1px solid #345d76;transition:.18s}.option:hover{background:#1c405c;transform:translateY(-2px)}.option.correct{background:#155a43;border-color:#4ee6a4}.option.wrong{background:#6a2930;border-color:#ff6973}.option:disabled{cursor:default}.feedback{margin-top:16px;padding:15px;border-radius:14px;background:#102b40;line-height:1.9}.hint{color:#ffd166}.explain{color:#aee4c7}.timer{height:10px;background:#162b3b;border-radius:99px;overflow:hidden;margin:15px 0}.timer>span{display:block;height:100%;width:100%;background:#31d48b;transition:width .2s linear}.timer>span.warn{background:#ffc83d}.timer>span.danger{background:#ff5261}.actions{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.thermo-wrap{display:flex;justify-content:center;gap:35px;align-items:center;padding:10px}.thermo{height:270px;width:54px;border-radius:30px;background:linear-gradient(to top,#5cc7ff 0 35%,#ffd166 35% 65%,#ff553d 65%);position:relative;border:4px solid #b7d9e8;box-shadow:0 0 20px #0008}.thermo .bulb{position:absolute;width:72px;height:72px;border-radius:50%;bottom:-34px;left:-13px;background:#ff5b45;border:4px solid #b7d9e8}.marker{position:absolute;left:50%;transform:translate(-50%,50%);bottom:35%;width:44px;height:8px;border-radius:8px;background:#fff;box-shadow:0 0 12px #fff;touch-action:none}.range{width:260px;accent-color:#ff743e}
+.earth-cut{width:min(340px,80vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff17a 0 15%,#ff8d25 15% 32%,#db4c27 32% 58%,#47a56f 58% 76%,#2671ad 76%);margin:0 auto 20px;position:relative;box-shadow:0 0 35px #ff772255}.earth-cut button{position:absolute;border:2px solid #fff8;background:#ff8c2488;color:#fff;padding:8px;border-radius:10px;font-weight:800}.outer-core-btn{top:42%;left:29%}.inner-core-btn{top:47%;left:43%;background:#fff17a99!important;color:#301400!important}
+.puzzle-list{display:grid;gap:10px;max-width:520px;margin:auto}.puzzle-card{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;background:#15344c;border:1px solid #3c6681;border-radius:15px}.move{display:flex;gap:6px}.move button{background:#244d68;color:#fff;border-radius:9px;padding:7px 10px}.text-answer{display:flex;gap:10px}.text-answer input{flex:1;min-width:0;padding:13px;border-radius:13px;border:1px solid #42677e;background:#081827;color:#fff;outline:none}.final-q{display:none}.final-q.active{display:block}.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:15px}.dot{width:11px;height:11px;border-radius:50%;background:#35556d}.dot.on{background:#61e5ff;box-shadow:0 0 12px #61e5ff}
+.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.result{padding:18px;border-radius:18px;background:#112d45;text-align:center;border:1px solid #315c75}.result strong{display:block;font-size:1.7rem;color:#8deeff}.medals{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:20px 0}.medal{padding:12px 16px;background:#17364d;border-radius:15px}.bar{height:14px;background:#172d40;border-radius:99px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,#23c7df,#8aeb8a);width:0}.danger-text{color:#ff7c85}
+@media(max-width:760px){.screen{padding:12px}.panel{padding:16px;border-radius:20px}.start-grid,.map,.options,.result-grid{grid-template-columns:1fr}.start-art{height:300px}.earth{width:230px}.probe{font-size:50px}.topbar{position:relative}.mission{align-items:flex-start;flex-direction:column}.qtext{font-size:1.05rem}.thermo-wrap{gap:15px}.range{width:190px}.scene{min-height:125px}.btn{width:100%}.actions .btn{width:auto}.text-answer{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<section id="start" class="screen active">
+  <div class="panel start-grid">
+    <div>
+      <div class="small muted">🔬 مأموریت آموزشی علوم ششم</div>
+      <h1 class="title">🌍 سفر به اعماق زمین</h1>
+      <div class="subtitle">ماجراجویی علمی از سطح زمین تا مرکز آن</div>
+      <p class="credits">شما فرمانده کاوشگر زمین هستید. مأموریت شما این است که از سطح زمین به اعماق آن سفر کنید، سرنخ‌های علمی را پیدا کنید و خود را به مرکز زمین برسانید.</p>
+      <p class="credits"><b>طراح:</b> رضوان السادات صنوبری<br><b>مدرسه:</b> خواجه نصیر<br><b>استان:</b> همدان</p>
+      <button class="btn" id="startBtn">🚀 شروع مأموریت</button>
+    </div>
+    <div class="start-art"><div class="earth"><i class="land l1"></i><i class="land l2"></i></div><div class="probe">🚀</div></div>
+  </div>
+</section>
+
+<section id="game" class="screen">
+  <div style="width:min(1200px,100%)">
+    <div class="topbar">
+      <div class="stats"><div class="stat">❤️ <span id="lives">3</span></div><div class="stat">⭐ <span id="score">0</span></div><div class="stat">⏱️ <span id="time">—</span></div></div>
+      <button class="btn alt sound" id="soundBtn">🔊 صدا</button>
+    </div>
+    <main class="content">
+      <div id="mapView">
+        <div class="panel">
+          <div class="mission"><div><h2>🗺️ نقشه مأموریت</h2><p class="muted">با تکمیل هر مرحله، مسیر بعدی باز می‌شود.</p></div></div>
+          <div class="map" id="stageMap"></div>
+        </div>
+      </div>
+      <div id="stageView" style="display:none">
+        <div class="panel">
+          <div class="mission"><div><h2 id="stageTitle"></h2><p class="muted" id="stageSubtitle"></p></div><button class="btn alt" id="mapBtn">🗺️ نقشه</button></div>
+          <div id="stageScene" class="scene"></div>
+          <div id="stageBody"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<section id="gameover" class="screen">
+ <div class="panel center">
+  <div style="font-size:5rem">💥</div><h1>مأموریت متوقف شد</h1><p class="muted">جان‌های شما تمام شد. آماده‌اید دوباره از سطح زمین شروع کنید؟</p>
+  <button class="btn" id="restartBtn">🔄 شروع دوباره</button>
+ </div>
+</section>
+
+<section id="finish" class="screen">
+ <div class="panel center">
+  <div style="font-size:5rem">🏆</div><h1>مأموریت با موفقیت انجام شد!</h1><p class="muted">شما مسیر سطح زمین تا مرکز زمین را کامل کردید.</p>
+  <div class="result-grid">
+   <div class="result">⭐<strong id="finalScore">0</strong>امتیاز</div>
+   <div class="result">⏱️<strong id="finalTime">0:00</strong>زمان کل</div>
+   <div class="result">❤️<strong id="finalLives">0</strong>جان باقی‌مانده</div>
+   <div class="result">🏅<strong id="rank">—</strong>رتبه</div>
+  </div>
+  <div id="medals" class="medals"></div>
+  <div class="result" style="text-align:right"><b>📊 عملکرد</b><div style="margin:12px 0" class="bar"><span id="performanceBar"></span></div><div id="performanceText" class="muted"></div></div>
+  <br><button class="btn" id="playAgainBtn">🚀 بازی دوباره</button>
+ </div>
+</section>
+</div>
+
+<script>
+"use strict";
+
+const STAGES = [
+ {id:1,icon:"🔬",title:"مرحله ۱ — مرکز پژوهش",sub:"شناخت درون زمین با سرنخ‌های علمی",type:"quiz",scene:"research",questions:[
+  {q:"دانشمندان برای شناخت بخش‌های درونی زمین، بیشتر از مطالعه چه چیزی استفاده می‌کنند؟",opts:["نور خورشید","امواج لرزه‌ای","باد","باران"],a:1,t:30,p:10,h:"سرنخ: چیزی که در زمین هنگام زمین‌لرزه حرکت می‌کند.",e:"امواج لرزه‌ای هنگام عبور از بخش‌های مختلف زمین رفتار متفاوتی دارند و از این راه اطلاعاتی درباره درون زمین به دست می‌آید."}
+ ]},
+ {id:2,icon:"〰️",title:"مرحله ۲ — تونل امواج لرزه‌ای",sub:"ردگیری رفتار موج‌ها در درون زمین",type:"quiz",scene:"tunnel",questions:[
+  {q:"سرعت امواج لرزه‌ای در همه مواد و بخش‌های زمین یکسان است؟",opts:["بله","خیر","فقط در هوا","فقط در آب"],a:1,t:20,p:10,h:"به تفاوت مواد و شرایط عبور موج فکر کن.",e:"سرعت موج‌های لرزه‌ای در مواد و شرایط مختلف یکسان نیست."},
+  {q:"اگر سرعت یا مسیر موج لرزه‌ای در بخشی از زمین تغییر کند، چه نتیجه‌ای ممکن است بگیریم؟",opts:["آن بخش خالی است","جنس یا حالت ماده می‌تواند متفاوت باشد","زمین متوقف شده است","دما صفر شده است"],a:1,t:30,p:20,h:"تغییر رفتار موج می‌تواند یک سرنخ درباره ماده باشد.",e:"تغییر سرعت یا مسیر موج می‌تواند نشان دهد جنس یا حالت ماده در آن بخش متفاوت است."}
+ ]},
+ {id:3,icon:"🪨",title:"مرحله ۳ — پوسته",sub:"رسیدن به بیرونی‌ترین لایه زمین",type:"quiz",scene:"crust",questions:[
+  {q:"بیرونی‌ترین لایه زمین کدام است؟",opts:["پوسته","گوشته","هسته","زمین سطحی"],a:0,t:20,p:10,h:"لایه‌ای را پیدا کن که بیرون همه لایه‌هاست.",e:"پوسته بیرونی‌ترین لایه زمین است."},
+  {q:"آیا ضخامت پوسته زمین در همه‌جا یکسان است؟",opts:["بله","خیر","فقط در خشکی","فقط زیر اقیانوس"],a:1,t:20,p:10,h:"به تفاوت پوسته زیر خشکی و زیر اقیانوس فکر کن.",e:"ضخامت پوسته زمین در همه‌جا یکسان نیست."}
+ ]},
+ {id:4,icon:"🔥",title:"مرحله ۴ — گوشته",sub:"ورود به ناحیه گرم‌تر زمین",type:"mixed",scene:"mantle",questions:[
+  {q:"کدام گزینه درباره گوشته درست است؟",opts:["گوشته در زیر پوسته قرار دارد و بخش بزرگی از حجم زمین را تشکیل می‌دهد.","گوشته بیرون از زمین است.","گوشته در مرکز زمین قرار دارد."],a:0,t:30,p:20,h:"گوشته را بین پوسته و هسته پیدا کن.",e:"گوشته در زیر پوسته قرار دارد و بخش بزرگی از حجم زمین را تشکیل می‌دهد."},
+  {thermo:true,t:20,p:10}
+ ]},
+ {id:5,icon:"🟠",title:"مرحله ۵ — هسته خارجی",sub:"هسته‌ای بسیار داغ و مایع",type:"quiz",scene:"core",questions:[
+  {q:"هسته خارجی زمین چه حالتی دارد؟",opts:["جامد","مایع","گاز"],a:1,t:20,p:10,h:"به هسته‌ای فکر کن که بخش مایع آن را در سؤال نهایی پیدا می‌کنی.",e:"هسته خارجی زمین حالت مایع دارد."}
+ ]},
+ {id:6,icon:"🌟",title:"مرحله ۶ — هسته داخلی",sub:"رسیدن به درونی‌ترین بخش زمین",type:"quiz",scene:"core",questions:[
+  {q:"هسته داخلی با وجود دمای بسیار زیاد، چرا جامد باقی می‌ماند؟",opts:["نبود نور خورشید","فشار بسیار زیاد","وجود آب","دمای پایین"],a:1,t:40,p:20,h:"در مرکز زمین فشار بسیار زیادی وجود دارد.",e:"فشار بسیار زیاد در مرکز زمین باعث می‌شود هسته داخلی با وجود دمای بالا جامد باقی بماند."}
+ ]},
+ {id:7,icon:"🧩",title:"مرحله ۷ — پازل لایه‌های زمین",sub:"لایه‌ها را از سطح تا مرکز مرتب کن",type:"puzzle",scene:"crust",questions:[{t:60,p:20}]},
+ {id:8,icon:"🧑‍🔬",title:"مرحله ۸ — دانشمند کوچک",sub:"از رفتار موج‌ها سرنخ بگیر",type:"quiz",scene:"tunnel",questions:[
+  {q:"یک دانشمند متوجه می‌شود موج لرزه‌ای هنگام رسیدن به بخشی از درون زمین رفتار متفاوتی پیدا کرده است. آیا می‌توان احتمال داد جنس یا حالت ماده در آن بخش با لایه قبلی متفاوت باشد؟",opts:["بله","خیر"],a:0,t:25,p:20,h:"رفتار موج یک سرنخ علمی است.",e:"بله. تغییر رفتار موج می‌تواند نشانه تفاوت جنس یا حالت ماده باشد."}
+ ]}
+];
+
+const FINALS = [
+ {kind:"quiz",q:"ترتیب درست لایه‌های زمین از سطح به مرکز کدام است؟",opts:["پوسته ← گوشته ← هسته خارجی ← هسته داخلی","گوشته ← پوسته ← هسته داخلی ← هسته خارجی","هسته خارجی ← گوشته ← پوسته ← هسته داخلی"],a:0,t:35,p:20},
+ {kind:"text",q:"بزرگ‌ترین لایه درونی زمین کدام است؟",answers:["گوشته"],t:30,p:20,e:"گوشته بزرگ‌ترین لایه درونی زمین است."},
+ {kind:"image",q:"روی تصویر، بخش مایع هسته را انتخاب کن.",t:30,p:20,e:"هسته خارجی حالت مایع دارد."},
+ {kind:"text",q:"دانشمندان با مطالعه چه چیزی درباره درون زمین اطلاعات به دست می‌آورند؟",answers:["امواج لرزه‌ای","امواج لرزه ای","امواج لرزه","لرزه‌ای","لرزه ای"],t:30,p:20,e:"امواج لرزه‌ای هنگام عبور از درون زمین سرنخ‌هایی درباره ساختار آن می‌دهند."}
+];
+
+const state = {
+ lives:3,score:0,stage:0,qIndex:0,attempt:1,timer:null,questionStart:0,totalStart:0,totalElapsed:0,
+ completed:new Set(),sound:true,finalIndex:0,finalCorrect:0,medals:[]
+};
+
+const $ = id => document.getElementById(id);
+const screens = ["start","game","gameover","finish"];
+function showScreen(id){screens.forEach(s=>$(s).classList.toggle("active",s===id));}
+function beep(freq=600,dur=.09,type="sine"){
+ if(!state.sound) return;
+ try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const c=new C(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.045,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dur);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+dur);setTimeout(()=>c.close&&c.close(),dur*1000+80)}catch(_){}
+}
+function updateStats(){ $("lives").textContent=state.lives; $("score").textContent=state.score; }
+function clearTimer(){if(state.timer){clearInterval(state.timer);state.timer=null} $("time").textContent="—";}
+function loseLife(){state.lives--;updateStats();beep(170,.18,"sawtooth");if(state.lives<=0){clearTimer();showScreen("gameover");return true}return false;}
+function addScore(base,limit){
+ const elapsed=(performance.now()-state.questionStart)/1000;
+ const speed=Math.max(0,Math.round(Math.min(5, (limit-elapsed)/limit*5)));
+ state.score+=base+speed;updateStats();beep(880,.12,"sine");
+}
+function startTimer(seconds,onEnd){
+ clearTimer();let end=Date.now()+seconds*1000;state.questionStart=performance.now();
+ const tick=()=>{let left=Math.max(0,end-Date.now());let sec=Math.ceil(left/1000);$("time").textContent=sec+"ث";let pct=left/(seconds*1000)*100;const bar=$("timerFill");if(bar){bar.style.width=pct+"%";bar.className=pct<30?"danger":pct<60?"warn":""}if(left<=0){clearTimer();onEnd();}};
+ state.timer=setInterval(tick,100);tick();
+}
+function renderMap(){
+ const map=$("stageMap");map.innerHTML="";
+ STAGES.forEach((s,i)=>{
+  const done=state.completed.has(i), unlocked=i===0||state.completed.has(i-1);
+  const d=document.createElement("button");d.className="stage "+(done?"done ":"")+(unlocked?"":"locked");
+  d.disabled=!unlocked;d.innerHTML=`<span class="icon">${s.icon}</span><h3>${s.title}</h3><div class="small muted">${s.sub}</div>${done?'<span class="badge">✅ تکمیل شد</span>':unlocked?'<span class="badge">▶</span>':'<span class="badge">🔒</span>'}`;
+  if(unlocked)d.onclick=()=>openStage(i);map.appendChild(d);
+ });
+ const final=document.createElement("button");final.className="stage "+(state.completed.size===STAGES.length?"":"locked");final.disabled=state.completed.size!==STAGES.length;
+ final.innerHTML='<span class="icon">🔐</span><h3>مأموریت نهایی</h3><div class="small muted">دروازه مرکز زمین</div><span class="badge">🏆</span>';
+ if(!final.disabled)final.onclick=startFinal;
+ map.appendChild(final);
+}
+function sceneHTML(kind){
+ if(kind==="tunnel")return '<div class="wave"></div><div class="wave"></div><div class="wave"></div><div style="position:absolute;inset:15%;border:2px solid #51dfff44;border-radius:50%"></div><div style="position:absolute;right:8%;top:20%;font-size:3rem">🚀</div>';
+ if(kind==="mantle")return '<div style="font-size:3rem;animation:pulse 1.5s infinite">🔥</div><div class="muted">عمق بیشتر؛ دما بیشتر</div>';
+ if(kind==="core")return '<div style="font-size:3.5rem;animation:pulse 1.4s infinite">🟠 🌟</div><div class="muted">ناحیه بسیار داغ</div>';
+ return '<div style="font-size:3rem">🌍</div><div class="muted">مقطع علمی زمین</div>';
+}
+function openStage(i){
+ clearTimer();state.stage=i;state.qIndex=0;state.attempt=1;showScreen("game");$("mapView").style.display="none";$("stageView").style.display="block";
+ const s=STAGES[i];$("stageTitle").textContent=s.title;$("stageSubtitle").textContent=s.sub;$("stageScene").className="scene "+s.scene;$("stageScene").innerHTML=sceneHTML(s.scene);renderQuestion();
+}
+function renderQuestion(){
+ clearTimer();const s=STAGES[state.stage],q=s.questions[state.qIndex];const body=$("stageBody");
+ if(q.thermo){renderThermo(q);return}
+ body.innerHTML=`<div class="question"><div class="qtext">${q.q}</div><div class="timer"><span id="timerFill"></span></div><div class="options">${q.opts.map((x,i)=>`<button class="option" data-i="${i}">${String.fromCharCode(65+i)}) ${x}</button>`).join("")}</div><div id="feedback"></div></div>`;
+ [...body.querySelectorAll(".option")].forEach(b=>b.onclick=()=>answerQuiz(Number(b.dataset.i)));
+ startTimer(q.t,()=>timeOut(q));
+}
+function feedback(text,cls="hint"){ $("feedback").innerHTML=`<div class="feedback ${cls}">${text}</div>`; }
+function answerQuiz(i){
+ const s=STAGES[state.stage],q=s.questions[state.qIndex],buttons=[...document.querySelectorAll(".option")];
+ if(buttons.some(b=>b.disabled))return;clearTimer();beep(450,.06);
+ if(i===q.a){buttons[i].classList.add("correct");buttons.forEach(b=>b.disabled=true);addScore(q.p,q.t);feedback("آفرین! پاسخ درست است.<br><span class='explain'>"+q.e+"</span>","explain");nextButton(()=>advanceStageQuestion());}
+ else{
+  buttons[i].classList.add("wrong");buttons.forEach(b=>b.disabled=true);
+  if(loseLife())return;
+  if(state.attempt===1){state.attempt=2;feedback("یک سرنخ: "+q.h+"<br><small>یک فرصت دیگر داری.</small>");setTimeout(()=>{buttons.forEach(b=>{b.disabled=false;b.classList.remove("wrong")});startTimer(q.t,()=>timeOut(q));},650);}
+  else{feedback("این بار هم درست نشد.<br>پاسخ صحیح: <b>"+q.opts[q.a]+"</b><br><span class='explain'>"+q.e+"</span>","explain");nextButton(()=>advanceStageQuestion());}
+ }
+}
+function timeOut(q){
+ clearTimer();beep(130,.2,"square");
+ if(loseLife())return;
+ feedback("⏰ زمان تمام شد.<br><span class='explain'>"+(q.e||"به سرنخ علمی دوباره فکر کن.")+"</span>","hint");
+ const body=$("stageBody");const opts=body.querySelectorAll(".option");opts.forEach(b=>b.disabled=true);
+ const retry=document.createElement("button");retry.className="btn alt";retry.textContent="🔁 تلاش دوباره";retry.onclick=()=>{state.attempt=Math.min(2,state.attempt+1);renderQuestion()};body.querySelector(".question").appendChild(retry);
+}
+function nextButton(fn){const d=document.createElement("div");d.className="actions";const b=document.createElement("button");b.className="btn";b.textContent=state.qIndex+1<STAGES[state.stage].questions.length?"➡️ سؤال بعد":"🗺️ ادامه مأموریت";b.onclick=fn;d.appendChild(b);$("stageBody").querySelector(".question").appendChild(d);}
+function advanceStageQuestion(){
+ const s=STAGES[state.stage];if(state.qIndex+1<s.questions.length){state.qIndex++;state.attempt=1;renderQuestion()}else completeStage();
+}
+function completeStage(){
+ clearTimer();state.completed.add(state.stage);if(state.stage===3&&!state.medals.includes("🔥 کاوشگر گوشته")){state.medals.push("🔥 کاوشگر گوشته");beep(1040,.18)}
+ if(state.stage===5&&!state.medals.includes("🌟 کاوشگر مرکز زمین")){state.medals.push("🌟 کاوشگر مرکز زمین");beep(1120,.2)}
+ renderMap();$("stageView").style.display="none";$("mapView").style.display="block";beep(760,.15);
+}
+function renderThermo(q){
+ $("stageBody").innerHTML=`<div class="question center"><div class="qtext">🌡️ دما با افزایش عمق در زمین معمولاً افزایش می‌یابد. نشانگر را به سمت ناحیه گرم‌تر ببرید.</div><div class="timer"><span id="timerFill"></span></div><div class="thermo-wrap"><div><div class="thermo"><div id="marker" class="marker"></div><div class="bulb"></div></div></div><div><input id="thermoRange" class="range" type="range" min="0" max="100" value="55"><p class="muted">❄️ سردتر &nbsp; ☀️ متوسط &nbsp; 🔥 گرم‌تر</p><button class="btn warn" id="thermoBtn">🔥 تأیید موقعیت</button></div></div><div id="feedback"></div></div>`;
+ const range=$("thermoRange"),marker=$("marker");const sync=()=>marker.style.bottom=range.value+"%";range.oninput=sync;sync();
+ $("thermoBtn").onclick=()=>{clearTimer();const v=Number(range.value);if(v>=67){addScore(q.p,q.t);feedback("آفرین! نشانگر در ناحیه گرم قرار گرفت.<br><span class='explain'>دما با افزایش عمق در زمین معمولاً افزایش می‌یابد.</span>","explain");if(!state.medals.includes("🔥 کاوشگر گوشته"))state.medals.push("🔥 کاوشگر گوشته");beep(1100,.18);const d=document.createElement("div");d.className="actions";d.innerHTML='<button class="btn">🏅 نشان کاوشگر گوشته — ادامه</button>';d.firstChild.onclick=advanceStageQuestion;$("stageBody").querySelector(".question").appendChild(d)}
+ else{feedback("هنوز به بخش گرم‌تر نرسیده‌ای. نشانگر را بالاتر ببر و دوباره تلاش کن.");startTimer(q.t,()=>timeOut(q));}};
+ startTimer(q.t,()=>timeOut(q));
+}
+function renderPuzzle(){
+ $("stageBody").innerHTML=`<div class="question center"><div class="qtext">🧩 کارت‌ها را از سطح زمین تا مرکز مرتب کن.</div><div class="timer"><span id="timerFill"></span></div><div id="puzzle" class="puzzle-list"></div><div id="feedback"></div><div class="actions"><button class="btn" id="checkPuzzle">✅ بررسی ترتیب</button></div></div>`;
+ let items=["هسته داخلی","پوسته","هسته خارجی","گوشته"];
+ const draw=()=>{$("puzzle").innerHTML=items.map((x,i)=>`<div class="puzzle-card"><b>${i+1}. ${x}</b><span class="move"><button data-i="${i}" data-d="-1">▲</button><button data-i="${i}" data-d="1">▼</button></span></div>`).join("");[...$("puzzle").querySelectorAll("button")].forEach(b=>b.onclick=()=>{let i=+b.dataset.i,d=+b.dataset.d,j=i+d;if(j>=0&&j<items.length){[items[i],items[j]]=[items[j],items[i]];draw();beep(500,.05)}})};draw();
+ $("checkPuzzle").onclick=()=>{clearTimer();if(items.join("|")==="پوسته|گوشته|هسته خارجی|هسته داخلی"){addScore(20,60);feedback("آفرین! ترتیب درست است: پوسته ← گوشته ← هسته خارجی ← هسته داخلی.","explain");$("checkPuzzle").disabled=true;nextButton(()=>completeStage())}else{if(loseLife())return;feedback("ترتیب هنوز درست نیست. از بیرون زمین به سمت مرکز فکر کن و کارت‌ها را با ▲ و ▼ جابه‌جا کن.");startTimer(60,()=>timeOut({e:"ترتیب درست: پوسته ← گوشته ← هسته خارجی ← هسته داخلی"}));}};
+ startTimer(60,()=>timeOut({e:"ترتیب درست: پوسته ← گوشته ← هسته خارجی ← هسته داخلی"}));
+}
+function startFinal(){
+ clearTimer();state.finalIndex=0;state.finalCorrect=0;showScreen("game");$("mapView").style.display="none";$("stageView").style.display="block";$("stageTitle").textContent="🔐 مأموریت نهایی — دروازه مرکز زمین";$("stageSubtitle").textContent="چهار قفل علمی را باز کن."; $("stageScene").className="scene core";$("stageScene").innerHTML='<div style="font-size:4rem">🔐 🌍</div><div class="muted">آخرین سرنخ‌ها را پیدا کن.</div>';renderFinal();
+}
+function normalize(s){return String(s??"").trim().replace(/[\u200c\u200d\u200e\u200f\uFEFF]/g,"").replace(/[يى]/g,"ی").replace(/ك/g,"ک").replace(/[ـ]/g,"").replace(/\s+/g," ").replace(/[أإٱ]/g,"ا").toLowerCase()}
+function renderFinal(){
+ clearTimer();const q=FINALS[state.finalIndex];let html=`<div class="question"><div class="progress-dots">${FINALS.map((_,i)=>`<i class="dot ${i<=state.finalIndex?"on":""}"></i>`).join("")}</div><div class="qtext">${q.q}</div><div class="timer"><span id="timerFill"></span></div>`;
+ if(q.kind==="quiz")html+=`<div class="options">${q.opts.map((x,i)=>`<button class="option" data-i="${i}">${String.fromCharCode(65+i)}) ${x}</button>`).join("")}</div>`;
+ if(q.kind==="text")html+=`<div class="text-answer"><input id="answerInput" autocomplete="off" placeholder="پاسخ خود را بنویس..."><button class="btn" id="submitText">ثبت پاسخ</button></div>`;
+ if(q.kind==="image")html+=`<div class="earth-cut"><button class="outer-core-btn" id="outerCore">🟠 هسته خارجی</button><button class="inner-core-btn" id="innerCore">🌟 هسته داخلی</button></div>`;
+ html+=`<div id="feedback"></div></div>`;$("stageBody").innerHTML=html;
+ if(q.kind==="quiz")[...$("stageBody").querySelectorAll(".option")].forEach(b=>b.onclick=()=>finalQuiz(+b.dataset.i));
+ if(q.kind==="text"){$("submitText").onclick=()=>finalText($("answerInput").value);$("answerInput").onkeydown=e=>{if(e.key==="Enter")finalText(e.target.value)}}
+ if(q.kind==="image"){$("outerCore").onclick=()=>finalImage(true);$("innerCore").onclick=()=>finalImage(false)}
+ startTimer(q.t,()=>finalTimeout(q));
+}
+function finalAdvance(){
+ clearTimer();if(state.finalIndex<FINALS.length-1){state.finalIndex++;renderFinal()}else finishGame();
+}
+function finalQuiz(i){const q=FINALS[state.finalIndex];clearTimer();const bs=[...$("stageBody").querySelectorAll(".option")];bs.forEach(b=>b.disabled=true);if(i===q.a){bs[i].classList.add("correct");state.finalCorrect++;addScore(q.p,q.t);feedback("آفرین! قفل باز شد.","explain");nextButton(finalAdvance)}else{bs[i].classList.add("wrong");if(loseLife())return;feedback("این پاسخ درست نیست. فرصت بعدی را با دقت بررسی کن.");setTimeout(renderFinal,650)}}
+function finalText(v){const q=FINALS[state.finalIndex];clearTimer();const ok=q.answers.some(a=>normalize(a)===normalize(v));if(ok){state.finalCorrect++;addScore(q.p,q.t);feedback("آفرین! پاسخ پذیرفته شد.<br><span class='explain'>"+q.e+"</span>","explain");$("submitText").disabled=true;nextButton(finalAdvance)}else{if(loseLife())return;feedback("این پاسخ را بررسی کن و دوباره تلاش کن. راهنما: به نام یکی از لایه‌های زمین و نقش آن در ساختار زمین فکر کن.");startTimer(q.t,()=>finalTimeout(q))}}
+function finalImage(ok){const q=FINALS[state.finalIndex];clearTimer();if(ok){state.finalCorrect++;addScore(q.p,q.t);feedback("آفرین! هسته خارجی بخش مایع هسته است.","explain");$("outerCore").disabled=true;$("innerCore").disabled=true;nextButton(finalAdvance)}else{if(loseLife())return;feedback("این بخش جامد است. بخش مایع هسته را پیدا کن.");startTimer(q.t,()=>finalTimeout(q))}}
+function finalTimeout(q){clearTimer();if(loseLife())return;feedback("⏰ زمان تمام شد. یک فرصت دیگر داری.");const b=document.createElement("button");b.className="btn alt";b.textContent="🔁 تلاش دوباره";b.onclick=renderFinal;$("stageBody").querySelector(".question").appendChild(b)}
+function finishGame(){
+ clearTimer();state.completed=new Set(STAGES.map((_,i)=>i));if(!state.medals.includes("⚡ مأموریت کامل"))state.medals.push("⚡ مأموریت کامل");state.totalElapsed=Math.round((performance.now()-state.totalStart)/1000);$("finalScore").textContent=state.score;$("finalTime").textContent=formatTime(state.totalElapsed);$("finalLives").textContent=state.lives;
+ let rank=state.score>110?"استاد اعماق زمین 🌋":state.score>=81?"زمین‌شناس حرفه‌ای 🧑‍🔬":state.score>=51?"کاوشگر زمین 🌍":"کارآموز کاوشگر 🛰️";$("rank").textContent=rank;
+ $("medals").innerHTML=state.medals.map(x=>`<div class="medal">${x}</div>`).join("");let perf=Math.min(100,Math.round((state.finalCorrect/FINALS.length)*100+Math.min(20,state.score/10)));$("performanceBar").style.width=perf+"%";$("performanceText").textContent=`${state.finalCorrect} از ${FINALS.length} قفل نهایی درست باز شد. امتیاز شما ${state.score} است.`;showScreen("finish");beep(1250,.25)}
+function formatTime(sec){sec=Math.max(0,Math.round(sec));return Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0")}
+function reset(){
+ clearTimer();state.lives=3;state.score=0;state.stage=0;state.qIndex=0;state.attempt=1;state.completed=new Set();state.finalIndex=0;state.finalCorrect=0;state.totalStart=performance.now();state.totalElapsed=0;state.medals=[];updateStats();showScreen("game");$("mapView").style.display="block";$("stageView").style.display="none";renderMap();
+}
+$("startBtn").onclick=()=>{state.totalStart=performance.now();state.lives=3;state.score=0;state.completed=new Set();state.medals=[];state.finalIndex=0;state.finalCorrect=0;updateStats();showScreen("game");renderMap();beep(720,.1)};
+$("restartBtn").onclick=reset;$("playAgainBtn").onclick=reset;
+$("mapBtn").onclick=()=>{clearTimer();$("stageView").style.display="none";$("mapView").style.display="block";renderMap()};
+$("soundBtn").onclick=()=>{state.sound=!state.sound;$("soundBtn").textContent=state.sound?"🔊 صدا":"🔇 بی‌صدا";if(state.sound)beep(700,.08)};
+updateStats();
+</script>
+</body>
+</html>
